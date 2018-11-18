@@ -14,7 +14,7 @@ const wordsbyConfig = {
     display: 'minimal-ui',
   },
   keys: {
-    previewToken: 'test',
+    previewToken: '7MBZO7KZmyIOzzHbkyweLs1xFUkjWNVQqQrWvAWMmZvCy8Qz7VLCEfFA',
     googleAnalyticsID: false,
   },
 }
@@ -28,12 +28,7 @@ const gatsbyConfig = {
     siteUrl: fullUrl,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

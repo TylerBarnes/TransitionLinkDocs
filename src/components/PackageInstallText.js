@@ -79,9 +79,7 @@ export default class PackageInstallText extends Component {
           {props.children}
         </HeadingSize>
         <CopyText text={this.state.textToCopy} onCopied={this.onCopied} />
-        <CopyMessage show={copiedMessage}>
-          {copiedMessage ? copiedMessage : null}
-        </CopyMessage>
+        <CopyMessage show={copiedMessage}>{copiedMessage}</CopyMessage>
       </Styles>
     )
   }

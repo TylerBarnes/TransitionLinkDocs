@@ -38,6 +38,7 @@
     "moment": "^2.22.2",
     "prismjs": "^1.15.0",
     "react": "^16.6.3",
+    "react-copy-text": "^1.0.1",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.6.3",
     "react-emotion": "^9.2.12",

@@ -11349,7 +11349,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.3.0, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.3.0, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -11564,6 +11564,13 @@ rc@^1.0.1, rc@^1.1.0, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-copy-text@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-copy-text/-/react-copy-text-1.0.1.tgz#735d286dd908979e1b71c3806d9d63b507deb507"
+  integrity sha512-89IL1u1AVNeEh/XrRQh5N+Vza6SVQuOs0TrtDI89s6s/ExvmM30k7/Ir9qnHA4OutBKCEhGMuRKY7lpYDrOP8Q==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-dev-utils@^4.2.1:
   version "4.2.2"

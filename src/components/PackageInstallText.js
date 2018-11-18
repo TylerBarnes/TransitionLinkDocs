@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import CopyText from 'react-copy-text'
 
 export default class PackageInstallText extends Component {

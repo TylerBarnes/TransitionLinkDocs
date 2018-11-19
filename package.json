@@ -35,6 +35,7 @@
     "gray-percentage": "^2.0.0",
     "gsap": "^2.0.2",
     "lodash": "^4.17.4",
+    "minireset.css": "^0.0.3",
     "modularscale": "^2.0.1",
     "moment": "^2.22.2",
     "prismjs": "^1.15.0",
@@ -47,9 +48,10 @@
     "react-twitter-widgets": "^1.7.1",
     "styled-components": "^4.1.1",
     "styled-components-grid": "^2.2.1",
+    "styled-components-spacing": "^3.1.1",
     "typography-normalize": "^0.14.0",
     "url-join": "^4.0.0",
-    "wordsby": "0.2.1"
+    "wordsby": "^0.3.0"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

@@ -4,3 +4,4 @@ public/
 .DS_Store
 yarn-error.log
 .env
+.eslintrc.json

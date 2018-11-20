@@ -3,12 +3,28 @@ import styled from 'styled-components'
 import Grid from 'styled-components-grid'
 import Edges from '../components/Edges'
 import MenuItems from '../components/MenuItems'
-import Link from 'gatsby-plugin-transition-link/AniLink'
+import TransitionLink from 'gatsby-plugin-transition-link'
+import TimelineMax from 'gsap'
 
 import PackageInstallText from '../components/PackageInstallText'
 import Card from '../components/Card'
 
-export default function home() {
+const exitHomeTrans = ({ exit, node }) => {
+  const cards = Array.from(node.querySelectorAll('.card'))
+  const staggerDelay = exit.length / cards.length
+  console.log(node)
+  setTimeout(() => console.log(node), 1000)
+  // return new TimelineMax().to(node, 1, { yPercent: '-100%' })
+  // return new TimelineMax().staggerTo(
+  //   cards,
+  //   1,
+  //   // exit.length,
+  //   { yPercent: '=50%', opacity: 0 },
+  //   0.2
+  // )
+}
+
+export default function home(props) {
   return (
     <Styles>
       <PackageInstallText>gatsby-plugin-transition-link</PackageInstallText>
@@ -23,9 +39,15 @@ export default function home() {
                   size={{ lg: 1 / 3 }}
                   key={`menu-item-${item.wordpress_id}`}
                 >
-                  <Link fade to={item.url}>
-                    <Card>{item.title}</Card>
-                  </Link>
+                  <TransitionLink
+                    to={item.url}
+                    exit={{ length: 10, trigger: exitHomeTrans }}
+                    entry={{ delay: 0.4 }}
+                  >
+                    <div className="card">
+                      <Card>{item.title}</Card>
+                    </div>
+                  </TransitionLink>
                 </Grid.Unit>
               ))
             }}
@@ -38,6 +60,9 @@ export default function home() {
 
 const Styles = styled.section`
   text-align: center;
+
+  padding-top: 400px;
+  padding-bottom: 100px;
 
   .logo {
     max-width: 50vh;

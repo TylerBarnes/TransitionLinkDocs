@@ -25,6 +25,22 @@ const styledTheme = {
   },
 }
 
+const MainLayout = props => (
+  <LocationProvider>
+    {({ location }) => (
+      <Layout
+        currentLocation={location.pathname}
+        action={location.action}
+        {...props}
+      >
+        {props.children}
+      </Layout>
+    )}
+  </LocationProvider>
+)
+
+export default MainLayout
+
 class Layout extends React.Component {
   render() {
     const { children } = this.props
@@ -56,8 +72,9 @@ class Layout extends React.Component {
                 allFile: { edges: files },
               } = query
               const logo = files[0].node.childImageSharp.fluid
+
               return (
-                <StyledEdges>
+                <Edges>
                   <Link fade to="/">
                     <StyledLogo
                       position={
@@ -69,7 +86,7 @@ class Layout extends React.Component {
                       <Img className="logo" fluid={logo} />
                     </StyledLogo>
                   </Link>
-                </StyledEdges>
+                </Edges>
               )
             }}
           />
@@ -80,38 +97,23 @@ class Layout extends React.Component {
   }
 }
 
-const StyledEdges = styled(Edges)`
-  position: relative;
-`
-
 const largeLogoWidth = 375
 
 const StyledLogo = styled.article`
   width: ${largeLogoWidth}px;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   left: 0;
   transform: translateX(calc(50vw - ${largeLogoWidth / 2}px));
   top: 50px;
-  transition: 1s all ease;
+  transition: 1s all ease-in-out;
 
   ${props =>
     props.position === 'top left'
       ? `
         width: 150px;
         left: 0;
-        transform: translateX(0);
+        transform: translateX(5vw);
       `
       : null};
 `
-const MainLayout = props => (
-  <LocationProvider>
-    {context => (
-      <Layout currentLocation={context.location.pathname} {...props}>
-        {props.children}
-      </Layout>
-    )}
-  </LocationProvider>
-)
-
-export default MainLayout

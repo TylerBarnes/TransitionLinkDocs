@@ -54,24 +54,24 @@ class Layout extends React.Component {
           <StaticQuery
             query={graphql`
               {
-                allFile(filter: { name: { eq: "transition-link-logo" } }) {
-                  edges {
-                    node {
-                      childImageSharp {
-                        fluid(maxWidth: 700) {
-                          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        }
-                      }
+                logoPng: file(
+                  relativePath: { eq: "transition-link-logo.png" }
+                ) {
+                  childImageSharp {
+                    fluid(maxWidth: 700) {
+                      ...GatsbyImageSharpFluid_tracedSVG
                     }
                   }
                 }
               }
             `}
             render={query => {
+              console.log(query)
               const {
-                allFile: { edges: files },
+                logoPng: {
+                  childImageSharp: { fluid: logo },
+                },
               } = query
-              const logo = files[0].node.childImageSharp.fluid
 
               return (
                 <Edges>

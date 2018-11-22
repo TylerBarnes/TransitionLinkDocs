@@ -13,6 +13,14 @@ import Edges from '../components/Edges'
 
 const GlobalStyle = createGlobalStyle`
   ${theme.typographyString}
+
+  * {
+    color: ${theme.color.green};
+  }
+
+  a, a:visited {
+    text-decoration: none;
+  }
 `
 
 const styledTheme = {
@@ -66,7 +74,6 @@ class Layout extends React.Component {
               }
             `}
             render={query => {
-              console.log(query)
               const {
                 logoPng: {
                   childImageSharp: { fluid: logo },

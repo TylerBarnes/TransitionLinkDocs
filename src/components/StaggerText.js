@@ -50,6 +50,7 @@ const Container = styled.div`
   .char-container {
     position: relative;
     overflow: hidden;
+    padding: 2px;
     display: inline-block;
   }
 `

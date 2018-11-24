@@ -4,8 +4,8 @@ import breakpoint from './breakpoints'
 const typeConfig = {
   bodyFontFamily: ['Roboto Mono', 'sans-serif'],
   headerFontFamily: ['Roboto Mono', 'sans-serif'],
-  bodyWeight: 300,
-  headerWeight: 500,
+  bodyWeight: 600,
+  headerWeight: 600,
   baseFontSize: '18px',
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
@@ -24,6 +24,9 @@ const typeConfig = {
   overrideStyles: ({ rhythm }) => ({
     h1: {
       letterSpacing: '-1px',
+    },
+    'h4,h5,h6': {
+      letterSpacing: '1px',
     },
     'p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + h6, ol + h1, ol + h2, ol + h3, ol + h4, ol + h5, ol + h6': {
       marginTop: rhythm(2.5),

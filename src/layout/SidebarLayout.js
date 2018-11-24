@@ -18,6 +18,8 @@ export default function SidebarLayout(props) {
   )
 }
 
-const Sidebar = styled(Grid.Unit)``
+const Sidebar = styled(Grid.Unit)`
+  /* background: red; */
+`
 
 const Content = styled(Grid.Unit)``

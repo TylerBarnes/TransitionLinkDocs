@@ -6,10 +6,11 @@ export default function Card(props) {
 }
 
 const Styles = styled.div`
-  min-height: 180px;
-  width: 100%;
+  min-height: 150px;
+  /* width: 100%; */
   margin: 0 auto;
-  max-width: 317px;
+  width: 275px;
+  max-width: 100%;
   box-shadow: 20px 22px 64px -10px rgba(0, 0, 0, 0.08);
   font-size: 17px;
   letter-spacing: 1.16px;

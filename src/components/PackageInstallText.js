@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import CopyText from 'react-copy-text'
+import * as theme from '../theme'
 
 export default class PackageInstallText extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ export default class PackageInstallText extends Component {
 
     setTimeout(
       () => this.setState({ copiedMessage: false, textToCopy: '' }),
-      750
+      1000
     )
   }
 
@@ -86,18 +87,23 @@ export default class PackageInstallText extends Component {
 }
 
 const CopyMessage = styled.div`
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 0px;
   left: 0;
   text-align: left;
-  transform: translateY(100%);
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 0.75em;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
+  padding: 20px;
+  background: ${theme.color.green};
+  color: white;
+  transform: translateY(0);
+
+  &:empty {
+    transform: translateY(-100%);
+  }
 `
 
 const PMSelector = styled.div`
@@ -121,14 +127,23 @@ const PMSelector = styled.div`
   span {
     display: block;
     text-align: right;
+    color: ${theme.color.lightGreen};
   }
 `
 
 const Styles = styled.section`
   position: relative;
-  height: 35px;
+  height: 32px;
   display: inline-block;
   cursor: pointer;
+  margin-bottom: 30px;
+
+  &,
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1.1px;
+  }
 
   &:hover {
     ${PMSelector} {

@@ -50,11 +50,11 @@ class home extends Component {
       <Styles ref={n => (this.page = n)}>
         <PackageInstallText>gatsby-plugin-transition-link</PackageInstallText>
         <StaggerText>
-          <h5>A Link component for page transitions in gatsbyjs</h5>
+          <h6>A Link component for page transitions in gatsbyjs</h6>
         </StaggerText>
 
         <Edges>
-          <Grid>
+          <StyledGrid>
             <MenuItems slug="home-menu">
               {items => {
                 return items.map(item => (
@@ -79,7 +79,7 @@ class home extends Component {
                 ))
               }}
             </MenuItems>
-          </Grid>
+          </StyledGrid>
         </Edges>
       </Styles>
     )
@@ -87,6 +87,10 @@ class home extends Component {
 }
 
 export default home
+
+const StyledGrid = styled(Grid)`
+  margin-top: 50px;
+`
 
 const Styles = styled.section`
   text-align: center;

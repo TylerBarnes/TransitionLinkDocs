@@ -32,11 +32,12 @@ export default ({ slug: propSlug, children }) => {
 
             if (items) {
               items.forEach(item => {
-                item.active = item.url === pathname ? true : false
+                item.active = !!(item.url === pathname)
+                item.activeParent = !!(
+                  !item.active && pathname.startsWith(item.url)
+                )
               })
             }
-
-            console.log(items)
 
             if (children) {
               return children(items)

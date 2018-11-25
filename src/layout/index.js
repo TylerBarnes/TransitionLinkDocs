@@ -10,6 +10,7 @@ import Img from 'gatsby-image'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import { LocationProvider } from '@reach/router'
 import Edges from '../components/Edges'
+import { DefaultSidebar } from './SidebarLayout'
 
 const GlobalStyle = createGlobalStyle`
   ${theme.typographyString}
@@ -93,6 +94,8 @@ class Layout extends React.Component {
                       <Img className="logo" fluid={logo} />
                     </StyledLogo>
                   </Link>
+
+                  <DefaultSidebar show={this.props.currentLocation !== '/'} />
                 </Edges>
               )
             }}
@@ -110,8 +113,7 @@ const StyledLogo = styled.article`
   width: ${largeLogoWidth}px;
   position: fixed;
   z-index: 100;
-  left: 0;
-  transform: translateX(calc(50vw - ${largeLogoWidth / 2}px));
+  transform: translateX(calc(600px - ${largeLogoWidth / 2}px));
   top: 50px;
   transition: 1s all ease-in-out;
 
@@ -119,8 +121,7 @@ const StyledLogo = styled.article`
     props.position === 'top left'
       ? `
         width: 150px;
-        left: 0;
-        transform: translateX(5vw);
+        transform: translateX(0);
       `
       : null};
 `

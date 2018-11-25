@@ -59,10 +59,6 @@ export const CollectionQuery = graphql`
               }
             }
           }
-
-          ... on WordPressAcf_code {
-            code
-          }
         }
       }
     }

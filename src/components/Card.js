@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import * as theme from '../theme'
 
 export default function Card(props) {
   return <Styles>{props.children}</Styles>
@@ -7,7 +8,6 @@ export default function Card(props) {
 
 const Styles = styled.div`
   min-height: 150px;
-  /* width: 100%; */
   margin: 0 auto;
   width: 275px;
   max-width: 100%;
@@ -19,4 +19,17 @@ const Styles = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+`
+
+export const CardTag = styled.span`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: ${theme.color.darkBlue};
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.55em;
+  letter-spacing: 1.5px;
+  padding: 5px 10px;
 `

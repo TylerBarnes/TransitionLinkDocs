@@ -4,15 +4,14 @@ import Grid from 'styled-components-grid'
 import Edges from '../components/Edges'
 import MenuItems from '../components/MenuItems'
 import Link from 'gatsby-plugin-transition-link/AniLink'
+import * as theme from '../theme'
 
 export default function SidebarLayout(props) {
   return (
     <LayoutStyles>
       <Edges>
         <Grid>
-          <Sidebar size={{ md: 1 / 4 }}>
-            {!!props.sidebar ? props.sidebar : <DefaultSidebar />}
-          </Sidebar>
+          <Sidebar size={{ md: 1 / 4 }}>{/* sidebar space */}</Sidebar>
           <Content size={{ md: 3 / 4 }}>{props.children}</Content>
         </Grid>
       </Edges>
@@ -20,25 +19,73 @@ export default function SidebarLayout(props) {
   )
 }
 
-const DefaultSidebar = () => {
+export const DefaultSidebar = ({ show }) => {
   return (
-    <>
-      <ol>
+    <SidebarStyles show={show}>
+      <SidebarMenu>
         <MenuItems slug="home-menu">
           {items =>
-            items.map(item => (
-              <li key={item.url}>
-                <Link fade to={item.url}>
-                  {item.title}
+            items.map(({ url, title, active, activeParent }) => (
+              <li key={url}>
+                <Link
+                  className={active || activeParent ? 'active' : ''}
+                  fade
+                  to={url}
+                >
+                  {title}
                 </Link>
               </li>
             ))
           }
         </MenuItems>
-      </ol>
-    </>
+      </SidebarMenu>
+      <GithubLink
+        href="https://github.com/TylerBarnes/gatsby-plugin-transition-link"
+        target="_blank"
+      >
+        View source on Github
+      </GithubLink>
+
+      <TyLink href="https://tylerbarnes.ca" target="_blank">
+        Made with Love by <span>TY</span>.
+      </TyLink>
+    </SidebarStyles>
   )
 }
+
+const GithubLink = styled.a`
+  margin-top: 100px;
+  display: block;
+`
+
+const TyLink = styled.a`
+  &,
+  span {
+    color: ${theme.color.lightGreen};
+  }
+  span {
+    text-decoration: underline;
+  }
+`
+
+const SidebarStyles = styled.nav`
+  position: fixed;
+  top: 210px;
+  z-index: 10;
+
+  ${props =>
+    !props.show
+      ? `
+        display: none;
+      `
+      : null};
+`
+
+const SidebarMenu = styled.ol`
+  .active {
+    text-decoration: underline;
+  }
+`
 
 const Sidebar = styled(Grid.Unit)`
   padding-top: 88px;
@@ -46,6 +93,8 @@ const Sidebar = styled(Grid.Unit)`
 
 const LayoutStyles = styled.section`
   padding-top: 120px;
+  min-height: 100vh;
+  background: white;
 `
 
 const Content = styled(Grid.Unit)``

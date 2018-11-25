@@ -6,6 +6,7 @@ import 'minireset.css'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import Grid from 'styled-components-grid'
 
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import { LocationProvider } from '@reach/router'
@@ -95,7 +96,12 @@ class Layout extends React.Component {
                     </StyledLogo>
                   </Link>
 
-                  <DefaultSidebar show={this.props.currentLocation !== '/'} />
+                  <Grid.Unit visible={{ xs: false, md: true }}>
+                    <DefaultSidebar
+                      fixed
+                      show={this.props.currentLocation !== '/'}
+                    />
+                  </Grid.Unit>
                 </Edges>
               )
             }}
@@ -113,15 +119,13 @@ const StyledLogo = styled.article`
   width: ${largeLogoWidth}px;
   position: fixed;
   z-index: 100;
-  transform: translateX(calc(600px - ${largeLogoWidth / 2}px));
+  transform-origin: top left;
+  transform: translateX(412.5px);
   top: 50px;
   transition: 1s all ease-in-out;
 
   ${props =>
     props.position === 'top left'
-      ? `
-        width: 150px;
-        transform: translateX(0);
-      `
+      ? `transform: translateZ(0)  translateX(0) scale(0.4)`
       : null};
 `

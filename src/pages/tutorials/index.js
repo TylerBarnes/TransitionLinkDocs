@@ -15,7 +15,7 @@ const Examples = () => {
             Swipe
           </Card>
         </Link>
-        <Link fade to="tutorials/fade">
+        <Link fade to="tutorials/fade" duration={1}>
           <Card>
             <CardTag>AniLink</CardTag>
             Fade

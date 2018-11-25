@@ -77,14 +77,23 @@ const HljsStyles = styled.div`
     color: #ebbbff;
   }
 
-  pre code {
-    display: block;
+  pre {
+    width: 800px;
+    max-width: 100%;
+    overflow-x: auto;
     background: #002451;
+    margin: 20px 0 50px;
+    padding: 40px 0;
+  }
+
+  pre code {
     color: white;
+    display: block;
     font-family: Menlo, Monaco, Consolas, monospace;
     line-height: 1.5;
-    border: 1px solid #ccc;
-    padding: 10px;
+    padding: 0 30px;
+    width: auto;
+    min-width: 100%;
   }
 `
 

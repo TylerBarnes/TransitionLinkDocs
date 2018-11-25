@@ -11,7 +11,11 @@ export default function SidebarLayout(props) {
     <LayoutStyles>
       <Edges>
         <Grid>
-          <SidebarSpace size={{ md: 1 / 4 }} />
+          <SidebarSpace size={{ md: 1 / 4 }}>
+            <Grid.Unit visible={{ xs: true, md: false }}>
+              <DefaultSidebar show />
+            </Grid.Unit>
+          </SidebarSpace>
           <Content size={{ md: 3 / 4 }}>{props.children}</Content>
         </Grid>
       </Edges>
@@ -19,9 +23,9 @@ export default function SidebarLayout(props) {
   )
 }
 
-export const DefaultSidebar = ({ show }) => {
+export const DefaultSidebar = ({ show, fixed }) => {
   return (
-    <SidebarStyles show={show}>
+    <SidebarStyles show={show} fixed={fixed}>
       <SidebarMenu>
         <MenuItems slug="home-menu">
           {items =>
@@ -54,8 +58,8 @@ export const DefaultSidebar = ({ show }) => {
 }
 
 const GithubLink = styled.a`
-  margin-top: 100px;
   display: block;
+  margin-bottom: 80px;
 `
 
 const TyLink = styled.a`
@@ -69,9 +73,20 @@ const TyLink = styled.a`
 `
 
 const SidebarStyles = styled.nav`
-  position: fixed;
-  top: 210px;
-  z-index: 10;
+  ${props =>
+    props.fixed
+      ? `
+    position: fixed;
+    top: 210px;
+    z-index: 10;
+    max-width: 200px
+  `
+      : null};
+  font-size: 16px;
+
+  li {
+    margin-bottom: 5px;
+  }
 
   ${props =>
     !props.show
@@ -82,6 +97,7 @@ const SidebarStyles = styled.nav`
 `
 
 const SidebarMenu = styled.ol`
+  margin-bottom: 100px;
   .active {
     text-decoration: underline;
   }
@@ -92,7 +108,7 @@ const SidebarSpace = styled(Grid.Unit)`
 `
 
 const LayoutStyles = styled.section`
-  padding-top: 120px;
+  padding: 120px 0;
   min-height: 100vh;
   background: white;
 `

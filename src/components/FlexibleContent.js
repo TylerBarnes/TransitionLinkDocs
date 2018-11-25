@@ -14,7 +14,11 @@ const FlexibleContent = ({ rows }) => {
   return rows.map(({ __typename: typename, ...data }, index) => {
     const type = typename.replace('WordPressAcf_', '')
     const Component = Components[type]
-    return Component ? <Component key={index} {...data} /> : console.log(type)
+    return Component ? (
+      <Component key={index} {...data} />
+    ) : (
+      console.warn(`No component found for ${type} type`)
+    )
   })
 }
 

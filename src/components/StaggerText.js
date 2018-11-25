@@ -24,14 +24,14 @@ class StaggerText extends Component {
     if (typeof document === 'undefined') return
 
     this.textSplit = new SplitText(this.text, {
-      type: 'words',
+      type: 'lines',
     })
 
-    for (const char of this.textSplit.words) {
+    for (const char of this.textSplit.lines) {
       this.wrap(char, document.createElement('span'))
     }
 
-    this.animateText(this.textSplit.words)
+    this.animateText(this.textSplit.lines)
   }
 
   render() {

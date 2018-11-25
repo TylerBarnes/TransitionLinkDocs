@@ -5,7 +5,7 @@ import SidebarLayout from '../../../layout/SidebarLayout'
 const CoverIndex = () => {
   return (
     <SidebarLayout>
-      <Link fade to="/tutorials">
+      <Link fade to="/tutorials" duration={1}>
         Back to tutorials
       </Link>
       <h1>AniLink Fade</h1>

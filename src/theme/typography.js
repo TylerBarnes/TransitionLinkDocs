@@ -4,20 +4,20 @@ import breakpoint from './breakpoints'
 const typeConfig = {
   bodyFontFamily: ['Roboto Mono', 'sans-serif'],
   headerFontFamily: ['Roboto Mono', 'sans-serif'],
-  bodyWeight: 600,
+  bodyWeight: 400,
   headerWeight: 600,
   baseFontSize: '18px',
-  baseLineHeight: 1.6,
+  baseLineHeight: 2,
   scaleRatio: 1.5,
   blockMarginBottom: 1,
   includeNormalize: false,
   breakpoints: {
     [`@media screen and (min-width:${breakpoint.small})`]: {
-      baseFontSize: '20px',
+      // baseFontSize: '20px',
       scaleRatio: 1.8,
     },
     [`@media screen and (min-width:${breakpoint.large})`]: {
-      baseFontSize: '22px',
+      // baseFontSize: '22px',
       scaleRatio: 1.9,
     },
   },
@@ -28,6 +28,13 @@ const typeConfig = {
     },
     'h4,h5,h6': {
       letterSpacing: '1px',
+    },
+    'p,h1,h2,h3,h4,h5,h6': {
+      maxWidth: '90%',
+      width: '670px',
+    },
+    code: {
+      fontSize: '.7rem',
     },
     'p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + h6, ol + h1, ol + h2, ol + h3, ol + h4, ol + h5, ol + h6': {
       marginTop: rhythm(2.5),

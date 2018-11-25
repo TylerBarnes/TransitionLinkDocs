@@ -10,7 +10,7 @@ const CoverIndex = () => {
       </Link>
       <h1>AniLink Cover</h1>
       <h2>Examples</h2>
-      <h2>Tutorial</h2>
+      <h2>How it's made</h2>
     </SidebarLayout>
   )
 }

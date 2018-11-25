@@ -11,7 +11,7 @@ export default function SidebarLayout(props) {
     <LayoutStyles>
       <Edges>
         <Grid>
-          <Sidebar size={{ md: 1 / 4 }}>{/* sidebar space */}</Sidebar>
+          <SidebarSpace size={{ md: 1 / 4 }} />
           <Content size={{ md: 3 / 4 }}>{props.children}</Content>
         </Grid>
       </Edges>
@@ -87,7 +87,7 @@ const SidebarMenu = styled.ol`
   }
 `
 
-const Sidebar = styled(Grid.Unit)`
+const SidebarSpace = styled(Grid.Unit)`
   padding-top: 88px;
 `
 

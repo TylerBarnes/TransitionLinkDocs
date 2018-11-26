@@ -34,7 +34,7 @@ const typeConfig = {
       width: '670px',
     },
     code: {
-      fontSize: '.7rem',
+      fontSize: '.8rem',
     },
     'p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + h6, ol + h1, ol + h2, ol + h3, ol + h4, ol + h5, ol + h6': {
       marginTop: rhythm(2.5),

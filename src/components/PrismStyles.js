@@ -5,11 +5,6 @@ const PrismStyles = styled.article`
   div.code-toolbar > .toolbar a,
   div.code-toolbar > .toolbar button,
   div.code-toolbar > .toolbar span {
-  }
-
-  div.code-toolbar > .toolbar a,
-  div.code-toolbar > .toolbar button,
-  div.code-toolbar > .toolbar span {
     background: none;
     border-radius: 0;
     display: block;
@@ -55,6 +50,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+clike+j
 
   pre * {
     color: white;
+    font-family: 'Roboto Mono';
   }
 
   /* Code blocks */
@@ -67,6 +63,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+clike+j
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
     padding: 30px;
+    margin-bottom: 30px;
     background: ${theme.color.darkBlue};
   }
 

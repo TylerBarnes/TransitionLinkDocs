@@ -1,13 +1,14 @@
 import Typography from '../utils/typography'
 import breakpoint from './breakpoints'
+import * as theme from '../theme'
 
 const typeConfig = {
-  bodyFontFamily: ['Roboto Mono', 'sans-serif'],
+  bodyFontFamily: ['Rubik', 'sans-serif'],
   headerFontFamily: ['Roboto Mono', 'sans-serif'],
   bodyWeight: 400,
   headerWeight: 600,
-  baseFontSize: '18px',
-  baseLineHeight: 2,
+  baseFontSize: '19px',
+  baseLineHeight: 1.75,
   scaleRatio: 1.5,
   blockMarginBottom: 1,
   includeNormalize: false,
@@ -18,7 +19,7 @@ const typeConfig = {
     },
     [`@media screen and (min-width:${breakpoint.large})`]: {
       // baseFontSize: '22px',
-      scaleRatio: 1.9,
+      scaleRatio: 2,
     },
   },
   overrideStyles: ({ rhythm }) => ({
@@ -32,6 +33,12 @@ const typeConfig = {
     'p,h1,h2,h3,h4,h5,h6': {
       maxWidth: '90%',
       width: '670px',
+    },
+    p: {
+      color: theme.color.darkGreen,
+    },
+    a: {
+      fontFamily: 'Roboto Mono',
     },
     code: {
       fontSize: '.8rem',

@@ -34,6 +34,7 @@ const gatsbyConfig = {
       options: {
         fonts: [
           `roboto mono\:300,400,400i,700`, // you can also specify font weights and styles
+          `Rubik`,
         ],
       },
     },

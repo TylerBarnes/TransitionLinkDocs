@@ -2,6 +2,26 @@ import styled from 'styled-components'
 import * as theme from '../theme'
 
 const PrismStyles = styled.article`
+  div.code-toolbar > .toolbar a,
+  div.code-toolbar > .toolbar button,
+  div.code-toolbar > .toolbar span {
+  }
+
+  div.code-toolbar > .toolbar a,
+  div.code-toolbar > .toolbar button,
+  div.code-toolbar > .toolbar span {
+    background: none;
+    border-radius: 0;
+    display: block;
+    padding: 20px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+  }
+
+  div.code-toolbar > .toolbar {
+    opacity: 1;
+  }
   /* PrismJS 1.15.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+clike+javascript+jsx */
   /**

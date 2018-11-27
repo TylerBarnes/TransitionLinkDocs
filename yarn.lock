@@ -6041,6 +6041,13 @@ gather-stream@^1.0.0:
   resolved "https://registry.yarnpkg.com/gather-stream/-/gather-stream-1.0.0.tgz#b33994af457a8115700d410f317733cbe7a0904b"
   integrity sha1-szmUr0V6gRVwDUEPMXczy+egkEs=
 
+gatsby-awesome-pagination@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/gatsby-awesome-pagination/-/gatsby-awesome-pagination-0.3.3.tgz#36c93ba2b39f3c408277b1809501d1eda94dd14a"
+  integrity sha512-ajvVcpo0a5mzzr1tgeTv9iKRd4sdtzEEuFq1CBbEQebRhiAcjDR3S36qzKdn+GwMAGFi5Ngs/2ZslxxSUCtLfw==
+  dependencies:
+    lodash "^4.17.10"
+
 gatsby-cli@^2.4.5:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.4.5.tgz#a3fc171067cfac9a3e131a6765160748c59c0a22"
@@ -15455,10 +15462,10 @@ with-open-file@^0.1.3:
     p-try "^2.0.0"
     pify "^3.0.0"
 
-wordsby@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/wordsby/-/wordsby-0.3.0.tgz#0cee845c54925b18d770bfcea957adbc01c3ceba"
-  integrity sha512-It+2mL8jJwiZH4ztdr/FbQLhWnyZhB4OSp2svMfUE9IvOUqSosCt9JoQ+q3dUM8dUSJx0wOxOq2KCcn91WqR9g==
+wordsby@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/wordsby/-/wordsby-0.4.0.tgz#01e64863335aed86f4b52b05bbf071dd2bf12ef0"
+  integrity sha512-BtjhAed5hlFVRKprl/oR9XDWPuXD9odZo9P3qlUYqcRz5EwY3ddDZSlMB205QSnXuE5ffnJd3Sx7IJ43ie3ADw==
   dependencies:
     "@babel/plugin-transform-regenerator" "^7.0.0"
     "@babel/polyfill" "^7.0.0"
@@ -15467,6 +15474,7 @@ wordsby@^0.3.0:
     commander "^2.19.0"
     deepmerge "^2.2.1"
     form-data "^2.3.3"
+    gatsby-awesome-pagination "^0.3.3"
     glob "^7.1.3"
     import-cwd "^2.1.0"
     lodash "^4.17.11"

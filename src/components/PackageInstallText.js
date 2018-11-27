@@ -143,6 +143,8 @@ const Styles = styled.section`
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 1.1px;
+    width: unset;
+    max-width: unset;
   }
 
   &:hover {

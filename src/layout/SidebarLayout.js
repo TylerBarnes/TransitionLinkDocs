@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Grid from 'styled-components-grid'
 import Edges from '../components/Edges'
-import MenuItems from '../components/MenuItems'
-import Link from 'gatsby-plugin-transition-link/AniLink'
 import * as theme from '../theme'
+import SidebarMenu from '../components/Menus/SidebarMenu'
 
 export default function SidebarLayout(props) {
   return (
@@ -26,23 +25,7 @@ export default function SidebarLayout(props) {
 export const DefaultSidebar = ({ show, fixed }) => {
   return (
     <SidebarStyles show={show} fixed={fixed}>
-      <SidebarMenu>
-        <MenuItems slug="home-menu">
-          {items =>
-            items.map(({ url, title, active, activeParent }) => (
-              <li key={url}>
-                <Link
-                  className={active || activeParent ? 'active' : ''}
-                  fade
-                  to={url}
-                >
-                  {title}
-                </Link>
-              </li>
-            ))
-          }
-        </MenuItems>
-      </SidebarMenu>
+      <SidebarMenu />
       <GithubLink
         href="https://github.com/TylerBarnes/gatsby-plugin-transition-link"
         target="_blank"
@@ -94,13 +77,6 @@ const SidebarStyles = styled.nav`
         display: none;
       `
       : null};
-`
-
-const SidebarMenu = styled.ol`
-  margin-bottom: 100px;
-  .active {
-    text-decoration: underline;
-  }
 `
 
 const SidebarSpace = styled(Grid.Unit)`

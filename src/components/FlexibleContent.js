@@ -1,6 +1,4 @@
 import React from 'react'
-import MenuItems from './MenuItems'
-import Link from 'gatsby-plugin-transition-link/AniLink'
 
 import unified from 'unified'
 import markdown from 'remark-parse'
@@ -15,6 +13,8 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 
 import PrismStyles from './PrismStyles'
+
+import ContentMenu from './Menus/ContentMenu'
 
 class FlexibleContent extends React.Component {
   constructor(props) {
@@ -42,7 +42,6 @@ export default FlexibleContent
 
 const Components = {
   markdown: ({ markdown: input }) => (
-    // <HljsStyles>
     <PrismStyles>
       <article
         dangerouslySetInnerHTML={{
@@ -55,29 +54,7 @@ const Components = {
         }}
       />
     </PrismStyles>
-    // </HljsStyles>
-  ),
-  npm__yarn: ({ npm, yarn }) => (
-    <div>
-      {npm}
-      <br />
-      {yarn}
-    </div>
   ),
   text: ({ text }) => <div dangerouslySetInnerHTML={{ __html: text }} />,
-  menu: ({ menu: { slug } }) => (
-    <MenuItems slug={slug}>
-      {items =>
-        items.map(({ title, url, wordpress_id }) => {
-          return (
-            <div key={wordpress_id}>
-              <Link paintDrip to={url}>
-                {title}
-              </Link>
-            </div>
-          )
-        })
-      }
-    </MenuItems>
-  ),
+  menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
 }

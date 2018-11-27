@@ -43,11 +43,6 @@ export const CollectionQuery = graphql`
             }
           }
 
-          ... on WordPressAcf_npm__yarn {
-            npm
-            yarn
-          }
-
           ... on WordPressAcf_image {
             image {
               localFile {

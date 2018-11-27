@@ -128,6 +128,14 @@ const gatsbyConfig = {
         layout: require.resolve(`./src/layout/index.js`),
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /svg/,
+        },
+      },
+    },
     // 'gatsby-plugin-offline',
   ],
 }

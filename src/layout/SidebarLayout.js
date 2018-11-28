@@ -6,16 +6,17 @@ import * as theme from '../theme'
 import SidebarMenu from '../components/Menus/SidebarMenu'
 
 export default function SidebarLayout(props) {
+  console.log(props)
   return (
     <LayoutStyles>
       <Edges>
         <Grid>
-          <SidebarSpace size={{ md: 1 / 4 }}>
+          <SidebarSpace size={{ md: 1 / 5 }}>
             <Grid.Unit visible={{ xs: true, md: false }}>
               <DefaultSidebar show />
             </Grid.Unit>
           </SidebarSpace>
-          <Content size={{ md: 3 / 4 }}>{props.children}</Content>
+          <Content size={{ md: 4 / 5 }}>{props.children}</Content>
         </Grid>
       </Edges>
     </LayoutStyles>
@@ -25,6 +26,7 @@ export default function SidebarLayout(props) {
 export const DefaultSidebar = ({ show, fixed }) => {
   return (
     <SidebarStyles show={show} fixed={fixed}>
+      <SidebarCover show={show} />
       <SidebarMenu />
       <GithubLink
         href="https://github.com/TylerBarnes/gatsby-plugin-transition-link"
@@ -55,28 +57,42 @@ const TyLink = styled.a`
   }
 `
 
+const SidebarCover = styled.div`
+  background: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: translateX(0);
+  transition: 0.75s ease-out transform;
+
+  ${props =>
+    props.show
+      ? `
+      transform: translateX(-100%);
+      transition-delay: .75s
+  `
+      : null};
+`
+
 const SidebarStyles = styled.nav`
   ${props =>
     props.fixed
       ? `
     position: fixed;
     top: 210px;
-    z-index: 10;
-    max-width: 200px
+    max-width: 200px;
+    z-index: 2
   `
       : null};
+
   font-size: 16px;
 
   li {
     margin-bottom: 5px;
   }
-
-  ${props =>
-    !props.show
-      ? `
-        display: none;
-      `
-      : null};
 `
 
 const SidebarSpace = styled(Grid.Unit)`

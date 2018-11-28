@@ -97,6 +97,8 @@ const Styles = styled.section`
 
   padding-top: 400px;
   padding-bottom: 100px;
+  z-index: 10;
+  position: relative;
 
   .logo {
     max-width: 50vh;

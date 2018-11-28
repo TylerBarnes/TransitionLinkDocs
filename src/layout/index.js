@@ -113,19 +113,33 @@ class Layout extends React.Component {
   }
 }
 
-const largeLogoWidth = 375
-
 const StyledLogo = styled.article`
-  width: ${largeLogoWidth}px;
+  width: 375px;
   position: fixed;
   z-index: 100;
-  transform-origin: top left;
-  transform: translateX(412.5px);
+  transform-origin: top center;
+  transform: translateX(50vw);
   top: 50px;
   transition: 1s all ease-in-out;
+  left: 0;
+
+  .logo {
+    transform: translateX(-55%);
+  }
+
+  &,
+  .logo {
+    transition: 1s all ease-in-out;
+  }
 
   ${props =>
     props.position === 'top left'
-      ? `transform: translateZ(0)  translateX(0) scale(0.4)`
+      ? `
+    transform: translateZ(0) translateX(0) scale(0.4);
+    
+    @media screen and (min-width: 1260px) {
+      transform: translateZ(0) translateX(calc(50vw - 1300px / 2)) scale(0.4);
+    }
+    `
       : null};
 `

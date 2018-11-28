@@ -72,8 +72,8 @@ const SidebarCover = styled.div`
     props.show
       ? `
       transform: translateX(-100%);
-      transition-delay: .75s
-  `
+      transition-delay: 0.5s;
+    `
       : null};
 `
 
@@ -85,6 +85,13 @@ const SidebarStyles = styled.nav`
     top: 210px;
     max-width: 200px;
     z-index: 2
+  `
+      : null};
+
+  ${props =>
+    !props.show
+      ? `
+    z-index: -1
   `
       : null};
 
@@ -102,7 +109,7 @@ const SidebarSpace = styled(Grid.Unit)`
 const LayoutStyles = styled.section`
   padding: 120px 0;
   min-height: 100vh;
-  background: white;
+  /* background: white; */
 `
 
 const Content = styled(Grid.Unit)``

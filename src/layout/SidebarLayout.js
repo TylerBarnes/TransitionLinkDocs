@@ -66,13 +66,16 @@ const SidebarCover = styled.div`
   left: 0;
   z-index: 10;
   transform: translateX(0);
-  transition: 0.75s ease-out transform;
+  transition: 0.75s ease-out transform, 0s opacity;
+  transition-delay: 0.5s, 0;
+  opacity: 1;
 
   ${props =>
     props.show
       ? `
       transform: translateX(-100%);
-      transition-delay: 0.5s;
+      opacity: 0;
+      transition-delay: 0.5s, 3s;
     `
       : null};
 `
@@ -88,11 +91,12 @@ const SidebarStyles = styled.nav`
       : null};
 
   transition: 0.5s ease opacity 0.5s;
+  transition-delay: 0s;
   ${props =>
     !props.show
       ? `
     opacity: 0;
-    transition-delay: 0s;
+    transition-delay: 1s;
     `
       : null};
 

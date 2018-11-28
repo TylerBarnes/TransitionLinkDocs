@@ -39,9 +39,10 @@ const LinkUnderline = styled.div`
     content: ' ';
     display: block;
     height: 4px;
-    background: ${theme.color.salmon};
+    background-color: ${theme.color.lightGreen};
     transform: translateX(-102%);
-    transition: 1s ease transform;
+    transition: 1s ease transform, 1s linear background-color;
+    transition-delay: 1s, 0.5s;
   }
 `
 
@@ -55,6 +56,8 @@ const StyledSidebarMenu = styled.ol`
     ${LinkUnderline} {
       &:before {
         transform: translateX(0);
+        background-color: ${theme.color.salmon};
+        transition-delay: 0s;
       }
     }
   }

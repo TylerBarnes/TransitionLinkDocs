@@ -84,17 +84,19 @@ const SidebarStyles = styled.nav`
     position: fixed;
     top: 210px;
     max-width: 200px;
-    z-index: 2
-  `
+    `
       : null};
 
+  transition: 0.5s ease opacity 0.5s;
   ${props =>
     !props.show
       ? `
-    z-index: -1
-  `
+    opacity: 0;
+    transition-delay: 0s;
+    `
       : null};
 
+  z-index: 2;
   font-size: 16px;
 
   li {
@@ -109,7 +111,7 @@ const SidebarSpace = styled(Grid.Unit)`
 const LayoutStyles = styled.section`
   padding: 120px 0;
   min-height: 100vh;
-  /* background: white; */
+  background: white;
 `
 
 const Content = styled(Grid.Unit)``

@@ -2,11 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import SidebarLayout from '../../layout/SidebarLayout'
 import FlexibleContent from '../../components/FlexibleContent'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default function Docs(props) {
+  console.log(props)
   const {
     wordpressWpCollections: { post_title, post_content, acf },
   } = props.data
+
+  const { nextPost, previousPost } = props.pageContext
 
   return (
     <SidebarLayout>
@@ -15,6 +19,12 @@ export default function Docs(props) {
         <div dangerouslySetInnerHTML={{ __html: post_content }} />
       )}
       {!!acf && <FlexibleContent rows={acf.content_collection} />}
+      <AniLink fade to={previousPost.pathname}>
+        Previous post
+      </AniLink>
+      <AniLink fade to={nextPost.pathname}>
+        Next post
+      </AniLink>
     </SidebarLayout>
   )
 }

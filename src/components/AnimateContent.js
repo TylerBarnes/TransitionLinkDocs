@@ -21,20 +21,20 @@ export default class AnimateContent extends Component {
           entry.target.style.opacity = 1
           entry.target.style.transform = 'translateY(0)'
         } else {
-          entry.target.style.opacity = 0
+          entry.target.style.opacity = 0.03
         }
       })
     }, config)
 
     elements.forEach(element => {
       observer.observe(element)
-      element.style.opacity = 0
+      element.style.opacity = 0.03
       element.style.transform = 'translateY(10px)'
     })
 
     setTimeout(() => {
       elements.forEach(element => {
-        element.style.transition = '.5s opacity ease-in, .25s transform ease'
+        element.style.transition = '1s opacity ease-in, .25s transform ease'
       })
     }, 500)
   }

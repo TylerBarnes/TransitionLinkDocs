@@ -46,10 +46,10 @@ const Examples = () => {
         </Link>
       </ExampleGrid>
       <PaginationLinks>
-        <ArrowLink direction="left" to="/overview">
+        <ArrowLink direction="left" to="/overview/">
           Back to Overview
         </ArrowLink>
-        <ArrowLink direction="right" to="/usage">
+        <ArrowLink direction="right" to="/usage/">
           Up next Docs
         </ArrowLink>
       </PaginationLinks>

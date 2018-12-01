@@ -86,20 +86,25 @@ export default class PackageInstallText extends Component {
   }
 }
 
-const CopyMessage = styled.div`
+const CopyMessage = styled.h4`
   position: fixed;
   top: 0px;
   left: 0;
   text-align: left;
-  text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
-  font-size: 0.75em;
+  text-transform: uppercase !important;
   pointer-events: none;
   padding: 20px;
   background: ${theme.color.green};
   color: white;
   transform: translateY(0);
+
+  font-size: 0.75rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   &:empty {
     transform: translateY(-100%);
@@ -117,6 +122,10 @@ const PMSelector = styled.div`
   transition-delay: 0.25s;
   width: 200px;
 
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
   .inner {
     position: absolute;
     bottom: 0;
@@ -133,18 +142,20 @@ const PMSelector = styled.div`
 
 const Styles = styled.section`
   position: relative;
-  height: 32px;
+  height: 25px;
   display: inline-block;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-bottom: 14px;
 
-  &,
-  h3 {
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 1.1px;
-    width: unset;
-    max-width: unset;
+  @media screen and (min-width: 768px) {
+    &,
+    h3 {
+      font-size: 17px;
+      line-height: 25px;
+      letter-spacing: 1.1px;
+      width: unset;
+      max-width: unset;
+    }
   }
 
   &:hover {

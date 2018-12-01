@@ -14,6 +14,7 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import Parser from 'html-react-parser'
 import AnimateContent from './AnimateContent'
 import PrismStyles from './PrismStyles'
+import Img from 'gatsby-image'
 
 import ContentMenu from './Menus/ContentMenu'
 
@@ -58,4 +59,11 @@ const Components = {
   ),
   text: ({ text }) => <div>{Parser(text)}</div>,
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
+  image: ({
+    image: {
+      localFile: {
+        childImageSharp: { fluid },
+      },
+    },
+  }) => <Img fluid={fluid} />,
 }

@@ -75,10 +75,10 @@ class Layout extends React.Component {
             query={graphql`
               {
                 logoPng: file(
-                  relativePath: { eq: "transition-link-logo.png" }
+                  relativePath: { eq: "transition-link-logo-2.png" }
                 ) {
                   childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
+                    fluid(maxWidth: 450, quality: 100) {
                       ...GatsbyImageSharpFluid_tracedSVG
                     }
                   }
@@ -126,7 +126,7 @@ class Layout extends React.Component {
 }
 
 const StyledLogo = styled.article`
-  width: 375px;
+  width: 450px;
   position: fixed;
   z-index: 100;
   transform-origin: top center;
@@ -137,6 +137,11 @@ const StyledLogo = styled.article`
 
   .logo {
     transform: translateX(-55%);
+
+    @media screen and (max-width: 767px) {
+      width: 200px;
+      max-width: 50%;
+    }
   }
 
   &,
@@ -149,9 +154,13 @@ const StyledLogo = styled.article`
       ? `
     transform: translateZ(0) translateX(0) scale(0.4);
     
+    @media screen and (max-width: 767px) {
+      transform: translateZ(0) translateX(5%) scale(0.7);
+    }
+    
     @media screen and (min-width: 1260px) {
-      transform: translateZ(0) translateX(calc(50vw - 1300px / 2)) scale(0.4);
+      transform: translateZ(0) translateX(calc(50vw - 1300px / 2)) scale(0.3);
     }
     `
-      : null};
+      : 'pointer-events: none'};
 `

@@ -15,14 +15,14 @@ export default class SidebarMenu extends Component {
                 <Link
                   className={active || activeParent ? 'active' : ''}
                   cover
+                  bg="white"
                   direction={
                     index >
                     items.findIndex(item => item.active || item.activeParent)
                       ? 'down'
                       : 'up'
                   }
-                  bg={theme.color.brutalBlue}
-                  duration={1}
+                  duration={1.25}
                   to={url}
                 >
                   {title}

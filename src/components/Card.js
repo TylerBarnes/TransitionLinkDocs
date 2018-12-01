@@ -7,9 +7,9 @@ export default function Card(props) {
 }
 
 const Styles = styled.div`
-  min-height: 150px;
+  min-height: 120px;
   margin: 0 auto;
-  width: 275px;
+  width: 220px;
   max-width: 100%;
   box-shadow: 20px 22px 64px -10px rgba(0, 0, 0, 0.08);
   font-size: 17px;
@@ -20,6 +20,13 @@ const Styles = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    min-height: 175px;
+    margin-bottom: 30px;
+    font-size: 1.25rem;
+  }
 `
 
 export const CardTag = styled.span`

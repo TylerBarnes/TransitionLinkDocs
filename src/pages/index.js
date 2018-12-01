@@ -48,18 +48,22 @@ class home extends Component {
   render() {
     return (
       <Styles ref={n => (this.page = n)}>
-        <PackageInstallText>gatsby-plugin-transition-link</PackageInstallText>
-        <StaggerText>
-          <h6>A Link component for page transitions in gatsbyjs</h6>
-        </StaggerText>
-
         <Edges>
+          <PackageInstallText>gatsby-plugin-transition-link</PackageInstallText>
+          <StaggerText>
+            <h2 className="subtitle">
+              A Link component for page transitions in gatsbyjs
+            </h2>
+          </StaggerText>
+        </Edges>
+
+        <Edges medium>
           <StyledGrid>
             <MenuItems slug="home-menu">
               {items => {
                 return items.map(item => (
                   <Grid.Unit
-                    size={{ lg: 1 / 3 }}
+                    size={{ md: 1 / 3 }}
                     key={`menu-item-${item.wordpress_id}`}
                   >
                     <TransitionLink
@@ -71,9 +75,7 @@ class home extends Component {
                         trigger: this.fadeInNext,
                       }}
                     >
-                      <div className="card">
-                        <Card>{item.title}</Card>
-                      </div>
+                      <Card>{item.title}</Card>
                     </TransitionLink>
                   </Grid.Unit>
                 ))
@@ -89,13 +91,16 @@ class home extends Component {
 export default home
 
 const StyledGrid = styled(Grid)`
-  margin-top: 50px;
+  margin-top: 30px;
 `
 
 const Styles = styled.section`
   text-align: center;
 
-  padding-top: 400px;
+  padding-top: 250px;
+  @media screen and (min-width: 768px) {
+    padding-top: 420px;
+  }
   padding-bottom: 100px;
   z-index: 10;
   position: relative;
@@ -103,5 +108,19 @@ const Styles = styled.section`
   .logo {
     max-width: 50vh;
     margin: 0 auto;
+  }
+
+  .subtitle {
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 768px) {
+    .subtitle {
+      font-size: 0.7rem;
+    }
+  }
+
+  * {
+    text-transform: none;
   }
 `

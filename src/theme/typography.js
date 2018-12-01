@@ -24,7 +24,10 @@ const typeConfig = {
   },
   overrideStyles: ({ rhythm }) => ({
     h1: {
-      letterSpacing: '2.2px',
+      letterSpacing: '-3px',
+    },
+    'h2,h3,h4,h5,h6': {
+      letterSpacing: '1px',
       textTransform: 'uppercase',
     },
     'h4,h5,h6': {

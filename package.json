@@ -37,6 +37,7 @@
     "gray-percentage": "^2.0.0",
     "gsap": "^2.0.2",
     "highlight.js": "^9.13.1",
+    "html-react-parser": "^0.4.7",
     "lodash": "^4.17.4",
     "marked": "^0.5.2",
     "minireset.css": "^0.0.3",
@@ -65,7 +66,7 @@
     "unified": "^7.0.2",
     "unified-stream": "^1.0.4",
     "url-join": "^4.0.0",
-    "wordsby": "^0.4.0"
+    "wordsby": "0.4.4"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

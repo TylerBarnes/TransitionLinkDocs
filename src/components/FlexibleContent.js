@@ -11,7 +11,8 @@ import 'prismjs/components/prism-jsx'
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
-
+import Parser from 'html-react-parser'
+import AnimateContent from './AnimateContent'
 import PrismStyles from './PrismStyles'
 
 import ContentMenu from './Menus/ContentMenu'
@@ -43,18 +44,18 @@ export default FlexibleContent
 const Components = {
   markdown: ({ markdown: input }) => (
     <PrismStyles>
-      <article
-        dangerouslySetInnerHTML={{
-          __html: unified()
+      <AnimateContent>
+        {Parser(
+          unified()
             .use(markdown)
             .use(remark2rehype)
             .use(format)
             .use(html)
-            .processSync(input).contents,
-        }}
-      />
+            .processSync(input).contents
+        )}
+      </AnimateContent>
     </PrismStyles>
   ),
-  text: ({ text }) => <div dangerouslySetInnerHTML={{ __html: text }} />,
+  text: ({ text }) => <div>{Parser(text)}</div>,
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
 }

@@ -6,13 +6,12 @@ import * as theme from '../theme'
 import SidebarMenu from '../components/Menus/SidebarMenu'
 
 export default function SidebarLayout(props) {
-  console.log(props)
   return (
     <LayoutStyles>
       <Edges>
         <Grid>
           <SidebarSpace size={{ md: 1 / 5 }}>
-            <Grid.Unit visible={{ xs: true, md: false }}>
+            <Grid.Unit visible={{ xs: true, md: false, lg: false, xl: false }}>
               <DefaultSidebar show />
             </Grid.Unit>
           </SidebarSpace>

@@ -2,8 +2,8 @@ import React from 'react'
 import MenuItems from '../MenuItems'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import styled from 'styled-components'
-import ArrowIcon from '../../images/svg/arrow-right-bold.svg'
-import * as theme from '../../theme'
+import LinkArrow from '../LinkArrow'
+import ArrowLink from '../ArrowLink'
 
 const ContentMenu = ({ slug }) => {
   return (
@@ -11,14 +11,11 @@ const ContentMenu = ({ slug }) => {
       {items =>
         items.map(({ title, url, wordpress_id }) => {
           return (
-            <div key={wordpress_id}>
-              <StyledLink paintDrip to={url}>
-                <LinkArrow>
-                  <ArrowIcon />
-                </LinkArrow>
+            <Item key={wordpress_id}>
+              <ArrowLink direction="right" to={url}>
                 {title}
-              </StyledLink>
-            </div>
+              </ArrowLink>
+            </Item>
           )
         })
       }
@@ -28,17 +25,6 @@ const ContentMenu = ({ slug }) => {
 
 export default ContentMenu
 
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
-`
-
-const LinkArrow = styled.span`
-  display: inline-flex;
-  align-items: center;
-  padding-right: 10px;
-
-  path {
-    fill: ${theme.color.lightGreen};
-  }
+const Item = styled.div`
+  margin-bottom: 10px;
 `

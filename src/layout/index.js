@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import Grid from 'styled-components-grid'
+import { TransitionPortal } from 'gatsby-plugin-transition-link'
 
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import { LocationProvider } from '@reach/router'
@@ -22,6 +23,15 @@ const GlobalStyle = createGlobalStyle`
 
   a, a:visited {
     text-decoration: none;
+  }
+
+  p code {
+    background: ${theme.color.darkBlue};
+    font-size: 1em;
+    color: white;
+    padding: 5px;
+    line-height: 1;
+    
   }
 `
 
@@ -68,7 +78,7 @@ class Layout extends React.Component {
                   relativePath: { eq: "transition-link-logo.png" }
                 ) {
                   childImageSharp {
-                    fluid(maxWidth: 700) {
+                    fluid(maxWidth: 1000, quality: 100) {
                       ...GatsbyImageSharpFluid_tracedSVG
                     }
                   }
@@ -83,26 +93,28 @@ class Layout extends React.Component {
               } = query
 
               return (
-                <Edges>
-                  <Link fade to="/">
-                    <StyledLogo
-                      position={
-                        this.props.currentLocation === '/'
-                          ? 'center'
-                          : 'top left'
-                      }
-                    >
-                      <Img className="logo" fluid={logo} />
-                    </StyledLogo>
-                  </Link>
+                <TransitionPortal level="top">
+                  <Edges>
+                    <Link fade to="/">
+                      <StyledLogo
+                        position={
+                          this.props.currentLocation === '/'
+                            ? 'center'
+                            : 'top left'
+                        }
+                      >
+                        <Img className="logo" fluid={logo} />
+                      </StyledLogo>
+                    </Link>
 
-                  <Grid.Unit visible={{ xs: false, md: true }}>
-                    <DefaultSidebar
-                      fixed
-                      show={this.props.currentLocation !== '/'}
-                    />
-                  </Grid.Unit>
-                </Edges>
+                    <Grid.Unit visible={{ xs: false, md: true }}>
+                      <DefaultSidebar
+                        fixed
+                        show={this.props.currentLocation !== '/'}
+                      />
+                    </Grid.Unit>
+                  </Edges>
+                </TransitionPortal>
               )
             }}
           />

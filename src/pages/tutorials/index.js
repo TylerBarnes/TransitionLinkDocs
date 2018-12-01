@@ -3,11 +3,16 @@ import Link from 'gatsby-plugin-transition-link/AniLink'
 import Card, { CardTag } from '../../components/Card'
 import styled from 'styled-components'
 import SidebarLayout from '../../layout/SidebarLayout'
+import LetterSlide from '../../components/LetterSlide'
+import PaginationLinks from '../../components/PaginationLinks'
+import ArrowLink from '../../components/ArrowLink'
 
 const Examples = () => {
   return (
     <SidebarLayout>
-      <h1>Tutorials</h1>
+      <LetterSlide>
+        <h1>Tutorials</h1>
+      </LetterSlide>
       <ExampleGrid>
         <Link swipe to="tutorials/swipe">
           <Card>
@@ -40,6 +45,14 @@ const Examples = () => {
           </Card>
         </Link>
       </ExampleGrid>
+      <PaginationLinks>
+        <ArrowLink direction="left" to="/overview">
+          Back to Overview
+        </ArrowLink>
+        <ArrowLink direction="right" to="/usage">
+          Up next Docs
+        </ArrowLink>
+      </PaginationLinks>
     </SidebarLayout>
   )
 }

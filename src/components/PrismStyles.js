@@ -14,9 +14,9 @@ const PrismStyles = styled.article`
     font-size: 0.75rem;
   }
 
-  div.code-toolbar > .toolbar {
+  /* div.code-toolbar > .toolbar {
     opacity: 1;
-  }
+  } */
   /* PrismJS 1.15.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+clike+javascript+jsx */
   /**
@@ -51,6 +51,12 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+clike+j
   pre * {
     color: white;
     font-family: 'Roboto Mono';
+  }
+  /* toolbar */
+  div.code-toolbar > .toolbar a,
+  div.code-toolbar > .toolbar button,
+  div.code-toolbar > .toolbar span {
+    box-shadow: none !important;
   }
 
   /* Code blocks */

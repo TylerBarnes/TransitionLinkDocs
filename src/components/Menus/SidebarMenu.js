@@ -10,11 +10,19 @@ export default class SidebarMenu extends Component {
       <StyledSidebarMenu>
         <MenuItems slug="home-menu">
           {items =>
-            items.map(({ url, title, active, activeParent }) => (
+            items.map(({ url, title, active, activeParent }, index) => (
               <li key={url}>
                 <Link
                   className={active || activeParent ? 'active' : ''}
-                  fade
+                  cover
+                  direction={
+                    index >
+                    items.findIndex(item => item.active || item.activeParent)
+                      ? 'down'
+                      : 'up'
+                  }
+                  bg={theme.color.brutalBlue}
+                  duration={1}
                   to={url}
                 >
                   {title}

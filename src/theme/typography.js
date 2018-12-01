@@ -33,9 +33,7 @@ const typeConfig = {
     p: {
       maxWidth: '90%',
       width: '670px',
-    },
-    p: {
-      color: theme.color.darkGreen,
+      color: theme.color.darkBlue,
     },
     a: {
       fontFamily: 'Roboto Mono',

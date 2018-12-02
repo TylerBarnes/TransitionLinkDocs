@@ -4,10 +4,12 @@ import * as theme from '../theme'
 
 const Box = ({ title, children, darkTitle }) => {
   return (
-    <BoxStyles>
-      <BoxTitle darkTitle={darkTitle}>{title}</BoxTitle>
-      {children}
-    </BoxStyles>
+    <div>
+      <BoxStyles>
+        {!!title && <BoxTitle darkTitle={darkTitle}>{title}</BoxTitle>}
+        {children}
+      </BoxStyles>
+    </div>
   )
 }
 
@@ -32,6 +34,8 @@ const BoxStyles = styled.section`
   border: 3px solid ${theme.color.lightGreen};
   padding: 30px 60px 30px 40px;
   margin: 30px 0 80px;
+  min-width: 200px;
+  max-width: 100%;
 
   & + & {
     margin-top: -20px;

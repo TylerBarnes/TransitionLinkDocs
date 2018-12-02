@@ -9,6 +9,7 @@ import Img from 'gatsby-image'
 import Grid from 'styled-components-grid'
 import { TransitionPortal } from 'gatsby-plugin-transition-link'
 
+import PrismStyles from '../components/PrismStyles'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import { LocationProvider } from '@reach/router'
 import Edges from '../components/Edges'
@@ -120,7 +121,7 @@ class Layout extends React.Component {
               )
             }}
           />
-          {children}
+          <PrismStyles>{children}</PrismStyles>
         </React.Fragment>
       </ThemeProvider>
     )

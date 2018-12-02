@@ -101,6 +101,18 @@ export const CollectionQuery = graphql`
               }
             }
           }
+
+          ... on WordPressAcf_table_of_contents {
+            title
+            menu {
+              slug
+            }
+          }
+
+          ... on WordPressAcf_box {
+            title
+            content
+          }
         }
       }
     }

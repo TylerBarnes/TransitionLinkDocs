@@ -1,10 +1,5 @@
 import React from 'react'
 
-import unified from 'unified'
-import markdown from 'remark-parse'
-import remark2rehype from 'remark-rehype'
-import format from 'rehype-format'
-import html from 'rehype-stringify'
 import 'clipboard'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx'
@@ -13,13 +8,14 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import Parser from 'html-react-parser'
 import AnimateContent from './AnimateContent'
-import PrismStyles from './PrismStyles'
+
 import Img from 'gatsby-image'
 import ExampleGrid from './ExampleGrid'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import Card, { CardTag } from './Card'
-
+import Box from './Box'
 import ContentMenu from './Menus/ContentMenu'
+import ParseMarkdownToJsx from './ParseMarkdownToJsx'
 
 class FlexibleContent extends React.Component {
   constructor(props) {
@@ -47,18 +43,7 @@ export default FlexibleContent
 
 const Components = {
   markdown: ({ markdown: input }) => (
-    <PrismStyles>
-      <AnimateContent>
-        {Parser(
-          unified()
-            .use(markdown)
-            .use(remark2rehype)
-            .use(format)
-            .use(html)
-            .processSync(input).contents
-        )}
-      </AnimateContent>
-    </PrismStyles>
+    <AnimateContent>{ParseMarkdownToJsx(input)}</AnimateContent>
   ),
   text: ({ text }) => <div>{Parser(text)}</div>,
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
@@ -82,7 +67,6 @@ const Components = {
             direction,
             duration,
             top,
-            ...rest
           }) => {
             return (
               <Link
@@ -106,6 +90,16 @@ const Components = {
           }
         )}
       </ExampleGrid>
+    )
+  },
+  table_of_contents: ({ title, menu: { slug } }) => (
+    <ContentMenu slug={slug} title={title} />
+  ),
+  box: ({ title, content }) => {
+    return (
+      <Box darkTitle title={title}>
+        {ParseMarkdownToJsx(content)}
+      </Box>
     )
   },
 }

@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import ArrowLink from '../ArrowLink'
 import Box from '../Box'
 
-const ContentMenu = ({ slug }) => {
+const ContentMenu = ({ slug, title }) => {
   return (
-    <Box title="Table of contents">
+    <Box title={title}>
       <MenuItems slug={slug}>
         {items =>
           items.map(({ title, url, wordpress_id }) => {

@@ -72,17 +72,39 @@ const Components = {
   card_grid: ({ cards }) => {
     return (
       <ExampleGrid>
-        {cards.map(({ tag, ...rest }) => {
-          console.log(rest)
-          return (
-            <Link fade to="tutorials/fade" duration={1}>
-              <Card>
-                <CardTag>{tag.map(tag => tag.name).join(', ')}</CardTag>
-                Fade
-              </Card>
-            </Link>
-          )
-        })}
+        {cards.map(
+          ({
+            link_type,
+            title,
+            link,
+            transition,
+            bg,
+            direction,
+            duration,
+            top,
+            ...rest
+          }) => {
+            return (
+              <Link
+                cover={transition === 'cover'}
+                fade={transition === 'fade'}
+                swipe={transition === 'swipe'}
+                paintDrip={transition === 'paintDrip'}
+                to={link}
+                duration={duration}
+                direction={direction}
+                top={top}
+                key={title}
+                bg={bg}
+              >
+                <Card>
+                  <CardTag>{link_type.map(tag => tag.name).join(', ')}</CardTag>
+                  {title}
+                </Card>
+              </Link>
+            )
+          }
+        )}
       </ExampleGrid>
     )
   },

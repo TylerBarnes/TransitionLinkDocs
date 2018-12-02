@@ -79,7 +79,7 @@ export const CollectionQuery = graphql`
             cards {
               title
               link
-              tag {
+              link_type {
                 name
               }
               transition

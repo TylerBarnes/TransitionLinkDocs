@@ -10,28 +10,40 @@ export default class SidebarMenu extends Component {
       <StyledSidebarMenu>
         <MenuItems slug="sidebar-menu">
           {items =>
-            items.map(({ url, title, active, activeParent }, index) => (
-              <li key={url}>
-                <Link
-                  className={
-                    (active || activeParent) &&
-                    !(activeParent && url === '/docs/')
-                      ? 'active'
-                      : ''
-                  }
-                  cover
-                  bg="white"
-                  direction={
-                    index > items.findIndex(item => item.active) ? 'down' : 'up'
-                  }
-                  duration={1.25}
-                  to={url}
-                >
-                  {title}
-                  <LinkUnderline />
-                </Link>
-              </li>
-            ))
+            items.map(({ url, title, active, activeParent }, index) => {
+              const internal = /^\/(?!\/)/.test(url)
+
+              return (
+                <li key={url}>
+                  {internal ? (
+                    <Link
+                      className={
+                        (active || activeParent) &&
+                        !(activeParent && url === '/docs/')
+                          ? 'active'
+                          : ''
+                      }
+                      cover
+                      bg="white"
+                      direction={
+                        index > items.findIndex(item => item.active)
+                          ? 'down'
+                          : 'up'
+                      }
+                      duration={1.25}
+                      to={url}
+                    >
+                      {title}
+                      <LinkUnderline />
+                    </Link>
+                  ) : (
+                    <a href={url} target="_blank">
+                      {title}
+                    </a>
+                  )}
+                </li>
+              )
+            })
           }
         </MenuItems>
       </StyledSidebarMenu>

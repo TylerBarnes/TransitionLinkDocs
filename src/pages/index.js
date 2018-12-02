@@ -61,24 +61,33 @@ class home extends Component {
           <StyledGrid>
             <MenuItems slug="home-menu">
               {items => {
-                return items.map(item => (
-                  <Grid.Unit
-                    size={{ md: 1 / 3 }}
-                    key={`menu-item-${item.wordpress_id}`}
-                  >
-                    <TransitionLink
-                      to={item.url}
-                      exit={{ length: 1, trigger: this.exitHomeTrans }}
-                      entry={{
-                        delay: 0.5,
-                        length: 1,
-                        trigger: this.fadeInNext,
-                      }}
+                return items.map(item => {
+                  const internal = /^\/(?!\/)/.test(item.url)
+                  return (
+                    <Grid.Unit
+                      size={{ md: 1 / 3 }}
+                      key={`menu-item-${item.wordpress_id}`}
                     >
-                      <Card>{item.title}</Card>
-                    </TransitionLink>
-                  </Grid.Unit>
-                ))
+                      {internal ? (
+                        <TransitionLink
+                          to={item.url}
+                          exit={{ length: 1, trigger: this.exitHomeTrans }}
+                          entry={{
+                            delay: 0.5,
+                            length: 1,
+                            trigger: this.fadeInNext,
+                          }}
+                        >
+                          <Card>{item.title}</Card>
+                        </TransitionLink>
+                      ) : (
+                        <a href={item.url} target="_blank">
+                          <Card>{item.title}</Card>
+                        </a>
+                      )}
+                    </Grid.Unit>
+                  )
+                })
               }}
             </MenuItems>
           </StyledGrid>

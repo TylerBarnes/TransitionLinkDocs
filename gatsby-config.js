@@ -136,6 +136,7 @@ const gatsbyConfig = {
         },
       },
     },
+    'gatsby-plugin-netlify',
   ],
 }
 

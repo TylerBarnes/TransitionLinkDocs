@@ -7,6 +7,8 @@ export default class AnimateContent extends Component {
     this.wrapper = React.createRef()
   }
   componentDidMount() {
+    if (typeof IntersectionObserver === 'undefined') return // no intersection observer support so just bail out;
+
     const elements = this.wrapper.querySelectorAll(
       'p, pre, h1,h2,h3,h4, div, ul, .code-toolbar, .toolbar-item'
     )

@@ -15,7 +15,7 @@ const wordsbyConfig = {
   },
   keys: {
     previewToken: '7MBZO7KZmyIOzzHbkyweLs1xFUkjWNVQqQrWvAWMmZvCy8Qz7VLCEfFA',
-    googleAnalyticsID: false,
+    googleAnalyticsID: 'UA-130196764-2',
   },
 }
 
@@ -136,11 +136,17 @@ const gatsbyConfig = {
         },
       },
     },
-    // 'gatsby-plugin-offline',
   ],
 }
 
-if (wordsbyConfig.keys.googleAnalyticsID) {
+if (process.env.NODE_ENV === 'production') {
+  gatsbyConfig.plugins.push('gatsby-plugin-offline')
+}
+
+if (
+  wordsbyConfig.keys.googleAnalyticsID &&
+  process.env.NODE_ENV === 'production'
+) {
   gatsbyConfig.plugins.push({
     resolve: 'gatsby-plugin-google-analytics',
     options: {

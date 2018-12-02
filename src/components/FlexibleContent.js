@@ -47,13 +47,9 @@ const Components = {
   ),
   text: ({ text }) => <div>{Parser(text)}</div>,
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
-  image: ({
-    image: {
-      localFile: {
-        childImageSharp: { fluid },
-      },
-    },
-  }) => <Img fluid={fluid} />,
+  image: ({ image }) =>
+    !!image &&
+    !!image.localFile && <Img fluid={image.localFile.childImageSharp.fluid} />,
   card_grid: ({ cards }) => {
     return (
       <ExampleGrid>

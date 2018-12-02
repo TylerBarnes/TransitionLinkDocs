@@ -28,7 +28,7 @@ export default function Docs(props) {
 
       <PaginationLinks>
         {!!previousPost.pathname &&
-          previousPost.post_type === 'documentation' &&
+          previousPost.post_type === 'page' &&
           previousPost.post_type === post_type && (
             <ArrowLink direction="left" to={previousPost.pathname}>
               {!!previousPost.post_title
@@ -37,7 +37,7 @@ export default function Docs(props) {
             </ArrowLink>
           )}
         {!!nextPost.pathname &&
-          nextPost.post_type === 'documentation' &&
+          nextPost.post_type === 'page' &&
           nextPost.post_type === post_type && (
             <ArrowLink direction="right" to={nextPost.pathname}>
               {!!nextPost.post_title
@@ -59,21 +59,17 @@ export const CollectionQuery = graphql`
       acf {
         content_collection {
           __typename
-          ... on WordPressAcf_text {
-            text
-          }
-
           ... on WordPressAcf_markdown {
             markdown
           }
 
-          ... on WordPressAcf_menu {
-            menu {
-              wordpress_id
-              name
-              slug
-            }
-          }
+          # ... on WordPressAcf_menu {
+          #   menu {
+          #     wordpress_id
+          #     name
+          #     slug
+          #   }
+          # }
 
           ... on WordPressAcf_card_grid {
             cards {
@@ -87,18 +83,6 @@ export const CollectionQuery = graphql`
               direction
               bg
               top
-            }
-          }
-
-          ... on WordPressAcf_image {
-            image {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  }
-                }
-              }
             }
           }
 

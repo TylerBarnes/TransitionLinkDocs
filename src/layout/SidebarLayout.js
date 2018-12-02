@@ -10,8 +10,8 @@ export default function SidebarLayout(props) {
     <LayoutStyles>
       <Edges>
         <Grid>
-          <SidebarSpace size={{ md: 1 / 5 }} />
-          <Content size={{ md: 4 / 5 }}>
+          <SidebarSpace size={{ lg: 1 / 5 }} />
+          <Content size={{ lg: 4 / 5 }}>
             {props.children}{' '}
             <Footer>
               <TyLink href="https://tylerbarnes.ca" target="_blank">

@@ -109,7 +109,7 @@ class Layout extends React.Component {
                         </StyledLogo>
                       </Link>
 
-                      <Grid.Unit visible={{ xs: false, md: true }}>
+                      <Grid.Unit visible={{ xs: false, lg: true }}>
                         <DefaultSidebar
                           fixed
                           show={this.props.currentLocation !== '/'}

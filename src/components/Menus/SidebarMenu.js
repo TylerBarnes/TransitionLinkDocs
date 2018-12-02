@@ -13,7 +13,17 @@ export default class SidebarMenu extends Component {
             items.map(({ url, title, active, activeParent }, index) => (
               <li key={url}>
                 <Link
-                  className={active || activeParent ? 'active' : ''}
+                  className={
+                    (active || activeParent) &&
+                    !(activeParent && url === '/docs/')
+                      ? 'active'
+                      : ''
+                  }
+                  // className={
+                  //   (active || activeParent) && !activeParent.includes(active)
+                  //     ? 'active'
+                  //     : ''
+                  // }
                   cover
                   bg="white"
                   direction={

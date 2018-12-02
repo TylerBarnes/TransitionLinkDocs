@@ -22,10 +22,7 @@ export default class SidebarMenu extends Component {
                   cover
                   bg="white"
                   direction={
-                    index >
-                    items.findIndex(item => item.active || item.activeParent)
-                      ? 'down'
-                      : 'up'
+                    index > items.findIndex(item => item.active) ? 'down' : 'up'
                   }
                   duration={1.25}
                   to={url}

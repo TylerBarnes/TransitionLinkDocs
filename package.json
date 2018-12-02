@@ -66,7 +66,7 @@
     "unified": "^7.0.2",
     "unified-stream": "^1.0.4",
     "url-join": "^4.0.0",
-    "wordsby": "0.4.4"
+    "wordsby": "0.4.5"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

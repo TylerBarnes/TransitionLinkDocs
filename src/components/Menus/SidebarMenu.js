@@ -19,11 +19,6 @@ export default class SidebarMenu extends Component {
                       ? 'active'
                       : ''
                   }
-                  // className={
-                  //   (active || activeParent) && !activeParent.includes(active)
-                  //     ? 'active'
-                  //     : ''
-                  // }
                   cover
                   bg="white"
                   direction={

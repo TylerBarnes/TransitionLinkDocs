@@ -15586,10 +15586,10 @@ with-open-file@^0.1.3:
     p-try "^2.0.0"
     pify "^3.0.0"
 
-wordsby@0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/wordsby/-/wordsby-0.4.4.tgz#443467f4ee8ba94ae5fe995e8fc569352c44328c"
-  integrity sha512-S8lKby3pAVRzI8tnSKFONNi6P+9NIcWUHR7EvYISTvnG53j9qfV1gzKRWVgmiY+ha4FpTQgfgeOUhKVbpaKowA==
+wordsby@0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/wordsby/-/wordsby-0.4.5.tgz#e3bcd49f4fccbf5d147e61a6e7e8e545de365366"
+  integrity sha512-bgD5zTOuKNwrC0/BzneZa9+FomC6WE473qUuJxXijJ+4fLIbbayJQ42Lcjh1rK4g8ic4cWJEslmG37hxgC9t7Q==
   dependencies:
     "@babel/plugin-transform-regenerator" "^7.0.0"
     "@babel/polyfill" "^7.0.0"

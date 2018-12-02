@@ -10,12 +10,15 @@ export default function SidebarLayout(props) {
     <LayoutStyles>
       <Edges>
         <Grid>
-          <SidebarSpace size={{ md: 1 / 5 }}>
-            <Grid.Unit visible={{ xs: true, md: false, lg: false, xl: false }}>
-              <DefaultSidebar show />
-            </Grid.Unit>
-          </SidebarSpace>
-          <Content size={{ md: 4 / 5 }}>{props.children}</Content>
+          <SidebarSpace size={{ md: 1 / 5 }} />
+          <Content size={{ md: 4 / 5 }}>
+            {props.children}{' '}
+            <Footer>
+              <TyLink href="https://tylerbarnes.ca" target="_blank">
+                Made with Love by <span>TY</span>.
+              </TyLink>
+            </Footer>
+          </Content>
         </Grid>
       </Edges>
     </LayoutStyles>
@@ -27,23 +30,14 @@ export const DefaultSidebar = ({ show, fixed }) => {
     <SidebarStyles show={show} fixed={fixed}>
       <SidebarCover show={show} />
       <SidebarMenu />
-      <GithubLink
-        href="https://github.com/TylerBarnes/gatsby-plugin-transition-link"
-        target="_blank"
-      >
-        View source on Github
-      </GithubLink>
-
-      <TyLink href="https://tylerbarnes.ca" target="_blank">
-        Made with Love by <span>TY</span>.
-      </TyLink>
     </SidebarStyles>
   )
 }
 
-const GithubLink = styled.a`
-  display: block;
-  margin-bottom: 80px;
+const Footer = styled.footer`
+  padding-top: 150px;
+  padding-bottom: 20px;
+  font-size: 0.75rem;
 `
 
 const TyLink = styled.a`
@@ -62,7 +56,6 @@ const SidebarCover = styled.div`
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
   z-index: 10;
   transform: translateX(0);
   transition: 0.75s ease-out transform, 0s opacity;
@@ -91,6 +84,7 @@ const SidebarStyles = styled.nav`
 
   transition: 0.5s ease opacity 0.5s;
   transition-delay: 0s;
+  transform: translateX(-10px);
   ${props =>
     !props.show
       ? `
@@ -112,7 +106,7 @@ const SidebarSpace = styled(Grid.Unit)`
 `
 
 const LayoutStyles = styled.section`
-  padding: 120px 0;
+  padding-top: 120px;
   min-height: 100vh;
   background: white;
 `

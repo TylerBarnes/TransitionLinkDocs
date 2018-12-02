@@ -15,13 +15,11 @@ export default function Docs(props) {
 
   return (
     <SidebarLayout>
-      {!!previousPost.pathname &&
-        previousPost.post_type === 'documentation' &&
-        previousPost.post_type === post_type && (
-          <ArrowLink direction="left" light={1} to={previousPost.pathname}>
-            Back to {previousPost.post_title}
-          </ArrowLink>
-        )}
+      {post_type === 'documentation' && (
+        <ArrowLink direction="left" light={1} to="/usage/">
+          Table of contents
+        </ArrowLink>
+      )}
       <LetterSlide>{!!post_title && <h1>{post_title}</h1>}</LetterSlide>
       {!!post_content && (
         <div dangerouslySetInnerHTML={{ __html: post_content }} />
@@ -74,6 +72,21 @@ export const CollectionQuery = graphql`
               wordpress_id
               name
               slug
+            }
+          }
+
+          ... on WordPressAcf_card_grid {
+            cards {
+              title
+              link
+              tag {
+                name
+              }
+              transition
+              duration
+              direction
+              bg
+              top
             }
           }
 

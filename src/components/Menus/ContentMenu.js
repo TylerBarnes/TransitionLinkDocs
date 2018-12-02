@@ -1,25 +1,26 @@
 import React from 'react'
 import MenuItems from '../MenuItems'
-import Link from 'gatsby-plugin-transition-link/AniLink'
 import styled from 'styled-components'
-import LinkArrow from '../LinkArrow'
 import ArrowLink from '../ArrowLink'
+import Box from '../Box'
 
 const ContentMenu = ({ slug }) => {
   return (
-    <MenuItems slug={slug}>
-      {items =>
-        items.map(({ title, url, wordpress_id }) => {
-          return (
-            <Item key={wordpress_id}>
-              <ArrowLink direction="right" to={url}>
-                {title}
-              </ArrowLink>
-            </Item>
-          )
-        })
-      }
-    </MenuItems>
+    <Box title="Table of contents">
+      <MenuItems slug={slug}>
+        {items =>
+          items.map(({ title, url, wordpress_id }) => {
+            return (
+              <Item key={wordpress_id}>
+                <ArrowLink noBorder direction="right" to={url}>
+                  {title}
+                </ArrowLink>
+              </Item>
+            )
+          })
+        }
+      </MenuItems>
+    </Box>
   )
 }
 

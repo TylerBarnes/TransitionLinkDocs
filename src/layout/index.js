@@ -94,26 +94,28 @@ class Layout extends React.Component {
 
               return (
                 <TransitionPortal level="top">
-                  <Edges>
-                    <Link fade to="/">
-                      <StyledLogo
-                        position={
-                          this.props.currentLocation === '/'
-                            ? 'center'
-                            : 'top left'
-                        }
-                      >
-                        <Img className="logo" fluid={logo} />
-                      </StyledLogo>
-                    </Link>
+                  <TransitionPortalInner>
+                    <StyledEdges>
+                      <Link fade to="/">
+                        <StyledLogo
+                          position={
+                            this.props.currentLocation === '/'
+                              ? 'center'
+                              : 'top left'
+                          }
+                        >
+                          <Img className="logo" fluid={logo} />
+                        </StyledLogo>
+                      </Link>
 
-                    <Grid.Unit visible={{ xs: false, md: true }}>
-                      <DefaultSidebar
-                        fixed
-                        show={this.props.currentLocation !== '/'}
-                      />
-                    </Grid.Unit>
-                  </Edges>
+                      <Grid.Unit visible={{ xs: false, md: true }}>
+                        <DefaultSidebar
+                          fixed
+                          show={this.props.currentLocation !== '/'}
+                        />
+                      </Grid.Unit>
+                    </StyledEdges>
+                  </TransitionPortalInner>
                 </TransitionPortal>
               )
             }}
@@ -124,6 +126,12 @@ class Layout extends React.Component {
     )
   }
 }
+
+const StyledEdges = styled(Edges)``
+
+const TransitionPortalInner = styled.section`
+  width: 100vw;
+`
 
 const StyledLogo = styled.article`
   width: 450px;
@@ -158,8 +166,8 @@ const StyledLogo = styled.article`
       transform: translateZ(0) translateX(5%) scale(0.7);
     }
     
-    @media screen and (min-width: 1260px) {
-      transform: translateZ(0) translateX(calc(50vw - 1300px / 2)) scale(0.3);
+    @media screen and (min-width: 1340px) {
+      transform: translateZ(0) translateX(calc(50vw - 1350px / 2)) scale(0.3);
     }
     `
       : 'pointer-events: none'};

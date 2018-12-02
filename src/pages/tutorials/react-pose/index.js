@@ -1,13 +1,14 @@
 import React from 'react'
-import Link from 'gatsby-plugin-transition-link/AniLink'
 import SidebarLayout from '../../../layout/SidebarLayout'
+import ArrowLink from '../../../components/ArrowLink'
+import * as theme from '../../../theme'
 
 const CoverIndex = () => {
   return (
     <SidebarLayout>
-      <Link fade to="/tutorials">
+      <ArrowLink direction="left" light bg={theme.color.purple} to="/tutorials">
         Back to tutorials
-      </Link>
+      </ArrowLink>
       <h1>React Pose</h1>
       <h2>Examples</h2>
       <h2>How it's made</h2>

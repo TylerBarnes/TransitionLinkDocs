@@ -8,7 +8,7 @@ export default class SidebarMenu extends Component {
   render() {
     return (
       <StyledSidebarMenu>
-        <MenuItems slug="home-menu">
+        <MenuItems slug="sidebar-menu">
           {items =>
             items.map(({ url, title, active, activeParent }, index) => (
               <li key={url}>
@@ -42,6 +42,7 @@ const LinkUnderline = styled.div`
   bottom: -6px;
   width: 100%;
   overflow: hidden;
+  left: 0;
 
   &:before {
     content: ' ';
@@ -56,8 +57,14 @@ const LinkUnderline = styled.div`
 
 const StyledSidebarMenu = styled.ol`
   margin-bottom: 100px;
+  padding-right: 20px;
   a {
     position: relative;
+    margin-left: 10px;
+  }
+
+  li {
+    color: ${theme.color.lightGreen};
   }
 
   .active {

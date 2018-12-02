@@ -24,7 +24,8 @@ const typeConfig = {
   },
   overrideStyles: ({ rhythm }) => ({
     h1: {
-      letterSpacing: '-3px',
+      letterSpacing: '-1px',
+      fontFamily: 'Rubik, sans-serif',
     },
     'h2,h3,h4,h5,h6': {
       letterSpacing: '1px',

@@ -15,6 +15,9 @@ import Parser from 'html-react-parser'
 import AnimateContent from './AnimateContent'
 import PrismStyles from './PrismStyles'
 import Img from 'gatsby-image'
+import ExampleGrid from './ExampleGrid'
+import Link from 'gatsby-plugin-transition-link/AniLink'
+import Card, { CardTag } from './Card'
 
 import ContentMenu from './Menus/ContentMenu'
 
@@ -66,4 +69,21 @@ const Components = {
       },
     },
   }) => <Img fluid={fluid} />,
+  card_grid: ({ cards }) => {
+    return (
+      <ExampleGrid>
+        {cards.map(({ tag, ...rest }) => {
+          console.log(rest)
+          return (
+            <Link fade to="tutorials/fade" duration={1}>
+              <Card>
+                <CardTag>{tag.map(tag => tag.name).join(', ')}</CardTag>
+                Fade
+              </Card>
+            </Link>
+          )
+        })}
+      </ExampleGrid>
+    )
+  },
 }

@@ -142,6 +142,16 @@ const gatsbyConfig = {
 
 if (process.env.NODE_ENV === 'production') {
   gatsbyConfig.plugins.push('gatsby-plugin-offline')
+  gatsbyConfig.plugins.push({
+    resolve: 'gatsby-plugin-sentry',
+    options: {
+      dsn: 'https://a47417f5ba3341d2a8542fbb67e00d0e@sentry.io/1335429',
+      // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
+      config: {
+        environment: 'live',
+      },
+    },
+  })
 }
 
 if (

@@ -6234,6 +6234,13 @@ gatsby-plugin-react-svg@^2.0.0:
   dependencies:
     svg-react-loader "^0.4.4"
 
+gatsby-plugin-sentry@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sentry/-/gatsby-plugin-sentry-0.1.0.tgz#5bbf0ccae2d22e360c1ef68f8a8f8d41a7cda128"
+  integrity sha512-DGyIAq8p+IpsyOaAduxzCdLX/aTQVP4vVVlWbCCa31n+LRMAISwKtifm0TZEcgyYOarg3YJwP8D0jrmdoG4HDg==
+  dependencies:
+    raven-js latest
+
 gatsby-plugin-sharp@2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.0.12.tgz#c791b29f153e481b8287605bf171331daaba7cb8"
@@ -11820,6 +11827,11 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
   integrity sha1-9JvmtIeJTdxA3MlKMi9hEJLgDV4=
+
+raven-js@latest:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.27.0.tgz#9f47c03e17933ce756e189f3669d49c441c1ba6e"
+  integrity sha512-vChdOL+yzecfnGA+B5EhEZkJ3kY3KlMzxEhShKh6Vdtooyl0yZfYNFQfYzgMf2v4pyQa+OTZ5esTxxgOOZDHqw==
 
 raw-body@2.3.2:
   version "2.3.2"

@@ -143,6 +143,7 @@ const gatsbyConfig = {
 
 if (process.env.NODE_ENV === 'production') {
   gatsbyConfig.plugins.push('gatsby-plugin-offline')
+  gatsbyConfig.plugins.push('gatsby-plugin-favicon')
   gatsbyConfig.plugins.push({
     resolve: 'gatsby-plugin-sentry',
     options: {

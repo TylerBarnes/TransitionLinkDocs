@@ -53,7 +53,7 @@ export default class SidebarMenu extends Component {
 
 const LinkUnderline = styled.div`
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   width: 100%;
   overflow: hidden;
   left: 0;
@@ -75,6 +75,7 @@ const StyledSidebarMenu = styled.ol`
   a {
     position: relative;
     margin-left: 10px;
+    font-size: 0.7rem;
   }
 
   li {

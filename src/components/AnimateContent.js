@@ -14,7 +14,7 @@ export default class AnimateContent extends Component {
     )
 
     const config = {
-      threshold: 0.9,
+      threshold: 0.7,
     }
 
     let observer = new IntersectionObserver(entries => {

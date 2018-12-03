@@ -5,6 +5,7 @@ import FlexibleContent from '../components/FlexibleContent'
 import ArrowLink from '../components/ArrowLink'
 import PaginationLinks from '../components/PaginationLinks'
 import LetterSlide from '../components/LetterSlide'
+import AnimateContent from '../components/AnimateContent'
 
 export default function Docs(props) {
   const {
@@ -24,7 +25,11 @@ export default function Docs(props) {
       {!!post_content && (
         <div dangerouslySetInnerHTML={{ __html: post_content }} />
       )}
-      {!!acf && <FlexibleContent rows={acf.content_collection} />}
+      {!!acf && (
+        <AnimateContent>
+          <FlexibleContent rows={acf.content_collection} />
+        </AnimateContent>
+      )}
 
       <PaginationLinks>
         {!!previousPost.pathname &&
@@ -90,6 +95,11 @@ export const CollectionQuery = graphql`
             title
             menu {
               slug
+            }
+            type
+            hash_links {
+              label
+              link
             }
           }
 

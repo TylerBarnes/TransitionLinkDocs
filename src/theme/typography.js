@@ -36,7 +36,7 @@ const typeConfig = {
     },
     p: {
       maxWidth: '90%',
-      width: '670px',
+      width: '700px',
       color: theme.color.darkBlue,
     },
     a: {
@@ -74,17 +74,17 @@ const typeConfig = {
     'p a': {
       position: 'relative',
     },
-    'p a:after': {
-      content: "' '",
-      position: 'absolute',
-      display: 'inline-block',
-      width: '100%',
-      height: '5px',
-      bottom: '-8px',
-      left: 0,
-      background: theme.color.salmon,
-      zIndex: 0,
-    },
+    // 'p a:after': {
+    //   content: "' '",
+    //   position: 'absolute',
+    //   display: 'inline-block',
+    //   width: '100%',
+    //   height: '5px',
+    //   bottom: '-6px',
+    //   left: 0,
+    //   background: theme.color.lightGreen,
+    //   zIndex: 0,
+    // },
   }),
 }
 

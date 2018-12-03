@@ -10,20 +10,20 @@ export default class AnimateContent extends Component {
     if (typeof IntersectionObserver === 'undefined') return // no intersection observer support so just bail out;
 
     const elements = this.wrapper.querySelectorAll(
-      'p, pre, h1,h2,h3,h4, div, ul, .code-toolbar, .toolbar-item'
+      ':scope > p, :scope > pre, :scope > h1,:scope > h2,:scope > h3,:scope > h4, :scope > div, :scope > ul, :scope > .code-toolbar, :scope > .toolbar-item'
     )
 
     const config = {
-      threshold: 0.8,
+      threshold: 0.9,
     }
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = 1
-          entry.target.style.transform = 'translateY(0)'
+          // entry.target.style.transform = 'translateY(0)'
         } else {
-          entry.target.style.opacity = 0.03
+          entry.target.style.opacity = 0.05
         }
       })
     }, config)
@@ -31,7 +31,7 @@ export default class AnimateContent extends Component {
     elements.forEach(element => {
       observer.observe(element)
       element.style.opacity = 0.03
-      element.style.transform = 'translateY(10px)'
+      // element.style.transform = 'translateY(10px)'
     })
 
     setTimeout(() => {

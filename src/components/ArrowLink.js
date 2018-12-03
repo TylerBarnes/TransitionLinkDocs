@@ -5,21 +5,28 @@ import LinkArrow from '../components/LinkArrow'
 import * as theme from '../theme'
 
 const ArrowLink = props => {
-  return props.to && props.children ? (
+  return (props.to || props.href) && props.children ? (
     <StyledAni
       noBorder={props.noBorder}
       light={props.light}
       direction={props.direction || 'right'}
     >
-      <AniLink
-        cover
-        bg="white"
-        direction={props.direction || 'right'}
-        to={props.to}
-      >
-        <LinkArrow reverse={props.direction === 'left'} />
-        {props.children}
-      </AniLink>
+      {props.to && !props.href ? (
+        <AniLink
+          cover
+          bg="white"
+          direction={props.direction || 'right'}
+          to={props.to}
+        >
+          <LinkArrow reverse={props.direction === 'left'} />
+          {props.children}
+        </AniLink>
+      ) : (
+        <a href={props.href}>
+          <LinkArrow reverse={props.direction === 'left'} />
+          {props.children}
+        </a>
+      )}
     </StyledAni>
   ) : null
 }

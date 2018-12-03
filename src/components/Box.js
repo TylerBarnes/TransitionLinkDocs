@@ -4,16 +4,22 @@ import * as theme from '../theme'
 
 const Box = ({ title, children, darkTitle }) => {
   return (
-    <div>
+    <BoxWrapper>
       <BoxStyles>
         {!!title && <BoxTitle darkTitle={darkTitle}>{title}</BoxTitle>}
         {children}
       </BoxStyles>
-    </div>
+    </BoxWrapper>
   )
 }
 
 export default Box
+
+const BoxWrapper = styled.div`
+  & + & {
+    margin-top: -50px;
+  }
+`
 
 const BoxTitle = styled.h4`
   background: white;

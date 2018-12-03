@@ -7754,6 +7754,11 @@ hast-util-to-parse5@^4.0.1:
     xtend "^4.0.1"
     zwitch "^1.0.0"
 
+hast-util-to-string@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hast-util-to-string/-/hast-util-to-string-1.0.1.tgz#b28055cdca012d3c8fd048757c8483d0de0d002c"
+  integrity sha512-EC6awGe0ZMUNYmS2hMVaKZxvjVtQA4RhXjtgE20AxGG49MM7OUUfaHc6VcVYv2YwzNlrZQGe5teimCxW1Rk+fA==
+
 hast-util-whitespace@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hast-util-whitespace/-/hast-util-whitespace-1.0.1.tgz#d67da2c87637b1ce1d85dd15b270ba057930149a"
@@ -12850,6 +12855,17 @@ rehype-minify-whitespace@^2.0.0:
     unist-util-is "^2.0.0"
     unist-util-modify-children "^1.0.0"
 
+rehype-slug@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/rehype-slug/-/rehype-slug-2.0.2.tgz#a0d5a4118548ee6165b1f911a213a13e284d91ba"
+  integrity sha512-CDCRfqx4qgfOSDG6t9KoyvrLejrICqhDJu0kNY2r5RhZLr2QHp9gG533nLzp6HLTVT0fSbZbdx8YvqLGpCBjPA==
+  dependencies:
+    github-slugger "^1.1.1"
+    hast-util-has-property "^1.0.0"
+    hast-util-is-element "^1.0.0"
+    hast-util-to-string "^1.0.0"
+    unist-util-visit "^1.1.0"
+
 rehype-stringify@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/rehype-stringify/-/rehype-stringify-5.0.0.tgz#f66780704824ed31b8945ac1b19093a5dab0efd3"
@@ -13884,6 +13900,11 @@ sliced@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
   integrity sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
+
+smooth-scroll@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-15.0.0.tgz#be4f9cb2cc4952d80db6736e5656ed5849305272"
+  integrity sha512-hG0AUxgIea+wduxNArBKH0FpHCqK61+QhcnymF9iHafdBFupD/D1tc2QdLjddXBov4fZe6+iZqteoyyvmpZ0TA==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

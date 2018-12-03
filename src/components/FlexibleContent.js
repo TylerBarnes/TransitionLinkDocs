@@ -7,7 +7,6 @@ import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import Parser from 'html-react-parser'
-import AnimateContent from './AnimateContent'
 
 import Img from 'gatsby-image'
 import ExampleGrid from './ExampleGrid'
@@ -42,10 +41,8 @@ class FlexibleContent extends React.Component {
 export default FlexibleContent
 
 const Components = {
-  markdown: ({ markdown: input }) => (
-    <AnimateContent>{ParseMarkdownToJsx(input)}</AnimateContent>
-  ),
-  text: ({ text }) => <div>{Parser(text)}</div>,
+  markdown: ({ markdown: input }) => ParseMarkdownToJsx(input),
+  text: ({ text }) => Parser(text),
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
   image: ({ image }) =>
     !!image &&
@@ -88,8 +85,13 @@ const Components = {
       </ExampleGrid>
     )
   },
-  table_of_contents: ({ title, menu: { slug } }) => (
-    <ContentMenu slug={slug} title={title} />
+  table_of_contents: ({ title, menu, type, hash_links }) => (
+    <ContentMenu
+      slug={menu && menu.slug ? menu.slug : false}
+      type={type}
+      links={hash_links}
+      title={title}
+    />
   ),
   box: ({ title, content }) => {
     return (

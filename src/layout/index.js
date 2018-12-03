@@ -15,6 +15,14 @@ import { LocationProvider } from '@reach/router'
 import Edges from '../components/Edges'
 import { DefaultSidebar } from './SidebarLayout'
 
+import '../polyfills/queryselector-scope'
+
+if (typeof window !== 'undefined') {
+  // Make scroll behavior of internal links smooth
+  // eslint-disable-next-line global-require
+  require('smooth-scroll')('a[href*="#"]')
+}
+
 const GlobalStyle = createGlobalStyle`
   ${theme.typographyString}
 

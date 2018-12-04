@@ -76,6 +76,18 @@ export const CollectionQuery = graphql`
           #   }
           # }
 
+          ... on WordPressAcf_image {
+            image {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid_tracedSVG
+                  }
+                }
+              }
+            }
+          }
+
           ... on WordPressAcf_card_grid {
             cards {
               title

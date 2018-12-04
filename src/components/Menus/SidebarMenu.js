@@ -61,7 +61,7 @@ const LinkUnderline = styled.div`
   &:before {
     content: ' ';
     display: block;
-    height: 4px;
+    height: 3px;
     background-color: ${theme.color.lightGreen};
     transform: translateX(-102%);
     transition: 1s ease transform, 1s linear background-color;
@@ -71,7 +71,6 @@ const LinkUnderline = styled.div`
 
 const StyledSidebarMenu = styled.ol`
   margin-bottom: 100px;
-  padding-right: 20px;
   a {
     position: relative;
     margin-left: 10px;

@@ -78,7 +78,7 @@ const SidebarStyles = styled.nav`
       ? `
     position: fixed;
     top: 210px;
-    max-width: 200px;
+    max-width: 250px;
     `
       : null};
 

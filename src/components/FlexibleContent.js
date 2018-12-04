@@ -44,9 +44,12 @@ const Components = {
   markdown: ({ markdown: input }) => ParseMarkdownToJsx(input),
   text: ({ text }) => Parser(text),
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
-  image: ({ image }) =>
-    !!image &&
-    !!image.localFile && <Img fluid={image.localFile.childImageSharp.fluid} />,
+  image: ({ image }) => {
+    return (
+      !!image &&
+      !!image.localFile && <Img fluid={image.localFile.childImageSharp.fluid} />
+    )
+  },
   card_grid: ({ cards }) => {
     return (
       <ExampleGrid>

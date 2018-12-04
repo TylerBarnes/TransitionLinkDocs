@@ -34,8 +34,6 @@ const typeConfig = {
     'h4,h5,h6': {
       letterSpacing: '0',
     },
-    // p: {
-    // },
     'p, li': {
       maxWidth: '90%',
       width: '700px',

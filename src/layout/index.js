@@ -39,9 +39,18 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1em;
     color: white;
     padding: 5px;
-    line-height: 1;
-    
+    line-height: 1; 
   }
+
+  .gatsby-image-wrapper {
+    opacity: 1 !important;
+  }
+
+  p > a:before {
+      content: ' ';
+      font-size: '0.5em';
+      display: 'inline';
+    }
 `
 
 const styledTheme = {

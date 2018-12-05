@@ -11,7 +11,7 @@ Check it out [in use](https://gatsby-plugin-transition-link.netlify.com/).
 
 ## The story
 
-I've always wanted to create one of those beautiful awwwards sites we all know. Because it quickly becomes complex to manage what a transition should look like to and from specific sets of pages, I've often settled on using a simple fade transition between all pages. That it's complicated and time consuming to set up page transitions has always been a major disappointment and left me feeling limited.
+I've always wanted to create one of those beautiful awwwards sites we all know. Because it quickly becomes complex to manage what a transition should look like to and from specific sets of pages, I've often settled on using a simple fade transition between all pages. That it's complicated and time consuming to set up page transitions has always been a major disappointment for me.
 
 I wanted an easy way to specify when and where a page transition should happen, and only when coming from or going to other specific pages, and I wanted it to be easy to manage that. I wanted the freedom to build anything I could dream up without spending a few hundred hours in the process!
 

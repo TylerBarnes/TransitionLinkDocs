@@ -33,7 +33,6 @@ const gatsbyConfig = {
     },
     'gatsby-plugin-wordsby',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-lodash',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

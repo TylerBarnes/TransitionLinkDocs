@@ -8,13 +8,14 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import Parser from 'html-react-parser'
 
-import Img from 'gatsby-image'
 import ExampleGrid from './ExampleGrid'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 import Card, { CardTag } from './Card'
 import Box from './Box'
 import ContentMenu from './Menus/ContentMenu'
 import ParseMarkdownToJsx from './ParseMarkdownToJsx'
+
+import { Img } from 'wordsby-components'
 
 class FlexibleContent extends React.Component {
   constructor(props) {
@@ -45,10 +46,7 @@ const Components = {
   text: ({ text }) => Parser(text),
   menu: ({ menu: { slug } }) => <ContentMenu slug={slug} />,
   image: ({ image }) => {
-    return (
-      !!image &&
-      !!image.localFile && <Img fluid={image.localFile.childImageSharp.fluid} />
-    )
+    return !!image && !!image.url && <Img field={image.url} />
   },
   card_grid: ({ cards }) => {
     return (

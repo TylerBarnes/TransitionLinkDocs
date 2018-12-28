@@ -9,7 +9,7 @@ import AnimateContent from '../components/AnimateContent'
 
 export default function Docs(props) {
   const {
-    wordpressWpCollections: { post_type, post_title, post_content, acf },
+    wordsbyCollections: { post_type, post_title, post_content, acf },
   } = props.data
 
   const { nextPost, previousPost } = props.pageContext
@@ -57,7 +57,7 @@ export default function Docs(props) {
 
 export const CollectionQuery = graphql`
   query Docs($id: Int!) {
-    wordpressWpCollections(wordpress_id: { eq: $id }) {
+    wordsbyCollections(ID: { eq: $id }) {
       post_title
       post_content
       post_type
@@ -78,7 +78,7 @@ export const CollectionQuery = graphql`
 
           ... on WordPressAcf_image {
             image {
-              localFile {
+              url {
                 childImageSharp {
                   fluid {
                     ...GatsbyImageSharpFluid_tracedSVG

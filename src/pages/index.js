@@ -62,7 +62,7 @@ class home extends Component {
             <MenuItems slug="home-menu">
               {items => {
                 return items.map(item => {
-                  const internal = /^\/(?!\/)/.test(item.url)
+                  const internal = /^\/(?!\/)/.test(item.pathname)
                   return (
                     <Grid.Unit
                       size={{ md: 1 / 3 }}
@@ -70,7 +70,7 @@ class home extends Component {
                     >
                       {internal ? (
                         <TransitionLink
-                          to={item.url}
+                          to={item.pathname}
                           exit={{ length: 1, trigger: this.exitHomeTrans }}
                           entry={{
                             delay: 0.5,
@@ -81,7 +81,7 @@ class home extends Component {
                           <Card>{item.title}</Card>
                         </TransitionLink>
                       ) : (
-                        <a href={item.url} target="_blank">
+                        <a href={item.pathname} target="_blank">
                           <Card>{item.title}</Card>
                         </a>
                       )}

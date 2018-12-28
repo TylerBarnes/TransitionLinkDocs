@@ -28,15 +28,8 @@
     "gatsby-plugin-sitemap": "2.0.4",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-plugin-transition-link": "^1.4.4",
-    "gatsby-plugin-twitter": "2.0.8",
-    "gatsby-plugin-wordsby": "^0.0.4",
-    "gatsby-remark-autolink-headers": "2.0.12",
-    "gatsby-remark-copy-linked-files": "2.0.8",
-    "gatsby-remark-images": "2.0.6",
-    "gatsby-remark-prismjs": "3.0.3",
-    "gatsby-remark-responsive-iframe": "2.0.8",
+    "gatsby-plugin-wordsby": "^0.0.5",
     "gatsby-source-filesystem": "2.0.12",
-    "gatsby-source-wordpress": "^3.0.14",
     "gatsby-transformer-remark": "2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "gray-percentage": "^2.0.0",
@@ -73,7 +66,8 @@
     "unified": "^7.0.2",
     "unified-stream": "^1.0.4",
     "url-join": "^4.0.0",
-    "wordsby": "0.4.5"
+    "wordsby": "0.4.5",
+    "wordsby-components": "^0.0.14"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

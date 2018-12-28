@@ -1,32 +1,14 @@
-const wordsbyConfig = {
-  siteName: 'TransitionLink Docs',
-  shortName: 'TransitionLink',
-  siteDescription:
-    'A Wordsby site for gatsby-plugin-transition-link (late 2018)',
-  url: {
-    base: 'transitionlink.temperance.online',
-    protocol: 'https',
-    pathPrefix: false,
-  },
-  manifest: {
-    background_color: '#6b37bf',
-    theme_color: '#6b37bf',
-    display: 'minimal-ui',
-  },
+const config = {
+  themeColor: '#6b37bf',
   keys: {
-    previewToken: '7MBZO7KZmyIOzzHbkyweLs1xFUkjWNVQqQrWvAWMmZvCy8Qz7VLCEfFA',
     googleAnalyticsID: 'UA-130196764-2',
   },
 }
 
-const previewPrefix = require('wordsby/preview')
-const fullUrl = `${wordsbyConfig.url.protocol}://${wordsbyConfig.url.base}`
+const previewPrefix = require('gatsby-plugin-wordsby/preview-prefix')
 
 const gatsbyConfig = {
   pathPrefix: previewPrefix(), // if you need to add a prefix to this site, pass it as a string eg. previewPrefix("/some-prefix").
-  siteMetadata: {
-    siteUrl: fullUrl,
-  },
   plugins: [
     `gatsby-plugin-styled-components`,
     {
@@ -39,42 +21,13 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: wordsbyConfig.siteName,
-        short_name: wordsbyConfig.shortName,
-        start_url: wordsbyConfig.url.startUrl
-          ? wordsbyConfig.url.startUrl
-          : '/',
-        background_color: wordsbyConfig.manifest.background_color,
-        theme_color: wordsbyConfig.manifest.theme_color,
-        display: 'minimal-ui',
-        icon: 'src/favicon.png',
-        baseUrl: wordsbyConfig.url.base,
-        protocol: wordsbyConfig.url.protocol,
-        useACF: false, // this should be false as the wordsby rest api endpoint has ACF built in.
-        verboseOutput: false,
-        includedRoutes: [
-          '**/wp-api-menus/v2/',
-          '**/wp-api-menus/v2/**',
-          '**/wp/v1/collections',
-          // '**/wp/v2/taxonomies',
-          '**/wp/v1/tax-terms',
-          '**/wp/v2/media',
-          '**/wp/v2/media/(?P<id>[d]+)',
-        ],
-        searchAndReplaceContentUrls: {
-          sourceUrl: `${fullUrl}(?!/wp-content/)`, // this replaces all urls except for media library links allowing us to use the WP permalink structure.
-          replacementUrl: '',
-        },
-      },
+        name: "wordsby",
+        path: `${__dirname}/wordsby/`
+      }
     },
-    {
-      resolve: 'wordsby',
-      options: {
-        previewToken: wordsbyConfig.keys.previewToken,
-      },
-    },
+    'gatsby-plugin-wordsby',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-lodash',
     {
@@ -94,7 +47,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: wordsbyConfig.themeColor,
+        color: config.themeColor,
       },
     },
     'gatsby-plugin-sharp',
@@ -157,13 +110,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (
-  wordsbyConfig.keys.googleAnalyticsID &&
+  config.keys.googleAnalyticsID &&
   process.env.NODE_ENV === 'production'
 ) {
   gatsbyConfig.plugins.push({
     resolve: 'gatsby-plugin-google-analytics',
     options: {
-      trackingId: wordsbyConfig.keys.googleAnalyticsID,
+      trackingId: config.keys.googleAnalyticsID,
     },
   })
 }

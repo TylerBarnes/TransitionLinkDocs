@@ -10,16 +10,16 @@ export default class SidebarMenu extends Component {
       <StyledSidebarMenu>
         <MenuItems slug="sidebar-menu">
           {items =>
-            items.map(({ url, title, active, activeParent }, index) => {
-              const internal = /^\/(?!\/)/.test(url)
+            items.map(({ pathname, title, active, activeParent }, index) => {
+              const internal = /^\/(?!\/)/.test(pathname)
 
               return (
-                <li key={url}>
+                <li key={pathname}>
                   {internal ? (
                     <Link
                       className={
                         (active || activeParent) &&
-                        !(activeParent && url === '/docs/')
+                        !(activeParent && pathname === '/docs/')
                           ? 'active'
                           : ''
                       }
@@ -31,13 +31,13 @@ export default class SidebarMenu extends Component {
                           : 'up'
                       }
                       duration={1.25}
-                      to={url}
+                      to={pathname}
                     >
                       {title}
                       <LinkUnderline />
                     </Link>
                   ) : (
-                    <a href={url} target="_blank">
+                    <a href={pathname} target="_blank">
                       {title}
                     </a>
                   )}

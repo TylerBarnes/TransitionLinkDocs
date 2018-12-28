@@ -1,4 +1,5 @@
 const config = {
+  frontendUrl: `https://transitionlink.tylerbarnes.ca`,
   themeColor: '#6b37bf',
   keys: {
     googleAnalyticsID: 'UA-130196764-2',
@@ -9,8 +10,8 @@ const previewPrefix = require('gatsby-plugin-wordsby/preview-prefix')
 
 const gatsbyConfig = {
   pathPrefix: previewPrefix(), // if you need to add a prefix to this site, pass it as a string eg. previewPrefix("/some-prefix").
-  siteMeta: {
-    url: `https://transitionlink.tylerbarnes.ca`,
+  siteMetadata: {
+    siteUrl: config.frontendUrl,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

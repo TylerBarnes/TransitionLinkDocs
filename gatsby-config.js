@@ -9,6 +9,9 @@ const previewPrefix = require('gatsby-plugin-wordsby/preview-prefix')
 
 const gatsbyConfig = {
   pathPrefix: previewPrefix(), // if you need to add a prefix to this site, pass it as a string eg. previewPrefix("/some-prefix").
+  siteMeta: {
+    url: `https://transitionlink.tylerbarnes.ca`,
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     {
@@ -21,11 +24,11 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "wordsby",
-        path: `${__dirname}/wordsby/`
-      }
+        name: 'wordsby',
+        path: `${__dirname}/wordsby/`,
+      },
     },
     'gatsby-plugin-wordsby',
     'gatsby-plugin-react-helmet',
@@ -109,10 +112,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-if (
-  config.keys.googleAnalyticsID &&
-  process.env.NODE_ENV === 'production'
-) {
+if (config.keys.googleAnalyticsID && process.env.NODE_ENV === 'production') {
   gatsbyConfig.plugins.push({
     resolve: 'gatsby-plugin-google-analytics',
     options: {

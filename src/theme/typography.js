@@ -1,4 +1,4 @@
-import Typography from '../utils/typography'
+import Typography from 'tyjs'
 import breakpoint from './breakpoints'
 import * as theme from '../theme'
 

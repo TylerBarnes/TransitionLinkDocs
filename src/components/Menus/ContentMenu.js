@@ -5,8 +5,6 @@ import ArrowLink from '../ArrowLink'
 import Box from '../Box'
 
 const ContentMenu = ({ slug, title, type, links }) => {
-  // console.log(type, links)
-
   return (
     <Box title={title}>
       {type === 'menu'

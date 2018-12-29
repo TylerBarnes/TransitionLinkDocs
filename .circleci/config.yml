@@ -1,10 +1,20 @@
 version: 2
+
 jobs:
-  build:
+  build:  
+    branches:
+      only:
+        - master
+
     working_directory: ~/tmp
+
     docker:
       - image: circleci/node:8
-    steps:
+    
+      steps:
+
+      - sudo apt install rsync
+
       - checkout
 
       # Download and cache dependencies
@@ -26,3 +36,15 @@ jobs:
           command: ./node_modules/.bin/gatsby build
           environment:
             WORDSBY_PREVIEW: true
+
+      - add_ssh_keys
+
+      - run:
+          name: Send preview build to WordPress
+          environment:
+            USER: temperb6
+            HOST: temperance.online
+            WORDPRESS_ROOT: /home4/temperb6/www/transitionlink
+          command: |
+            echo 'temperance.online ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeGWNB0lmtUe25GBdI6zX6vtEMFv58+bZo9Tc51Nz3j8LNsS9pTcUo4u1pRIbprSc8ki6UHeSCg49RLRu5pMj8ii+2QOuXLKxD1XXfsdJfW6e/ibD3qF9+jmcKMVk5BWcJ1X1lk8rzV1IDJyCFsLNR7+LB2ah0R2p0y85wfcaM9im6z3eTZFS87oUDIl6g/hCQzGy6mXq+kIzly+BQSjpThQFa2GW97lZRb37tGu+NRqRyIQ47e+JVOAEjkXm2+nUNPp1U6KuRKEE0u1zI9lIctrTrs4JpD/ZoeYly5Qu1sSb1xL28T5oVTiToMmrKVXGobXx6x1Azs6FRM0Z61PjzAU5dhQSSmDGpg9XS1F72RM4Bgm4qdn7Hy6/zwcUO6unitWEXG/49b0SQAewg8vCI7U/H0LG+q+DOfCiuLxpXuk75ZkbBDLu53/AXRN0xt+n7WA1+4IRN9GjpyuM17f9OIJ6g2KTCVRwhQ6/sj6VSnfK8jyBufs0EkZu4o17xAUc0FqAPWt2JTfkYn4lpd7v9qynl+2nGsD/84FY0Y4SeQ8JoHIqtflX6SsXUd+pZYb00cOIXzXjIMm7fJHDLXPhlCZ7npNSt7JdeB9phXx5icaD314OYOIXCWkkAI2+CAM5PgPumGInLruqBMoEyS86BKJ/S37bsLQWJZowjmGaoUw== tyler@known.design' >> ~/.ssh/known_hosts
+            rsync -va --delete public/ $USER@$HOST:$WORDPRESS_ROOT/preview

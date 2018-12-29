@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - sudo apt install rsync
+
       - checkout
 
       # Download and cache dependencies

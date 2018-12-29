@@ -19,10 +19,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - restore_cache:
-          keys:
-            - public-folder
-
       - run: yarn install
 
       - save_cache:
@@ -30,16 +26,19 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - save_cache:
-          paths:
-            - public
-          key: public-folder
-
+      - restore_cache:
+          keys:
+            - public-folder
       - run:
           name: Build preview templates
           command: ./node_modules/.bin/gatsby build
           environment:
             WORDSBY_PREVIEW: true
+
+      - save_cache:
+          paths:
+            - public
+          key: public-folder
 
       - run: sudo apt install rsync
 

@@ -35,6 +35,9 @@ jobs:
       - run: sudo apt install rsync
 
       - add_ssh_keys
+        fingerprints:
+          - "3c:4f:dc:c7:93:43:52:35:f0:56:87:0f:96:df:46:61"
+          
       - run:
           name: Add server to known_hosts
           command: ssh-keyscan -H temperance.online >> ~/.ssh/known_hosts

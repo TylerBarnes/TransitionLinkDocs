@@ -10,8 +10,6 @@ jobs:
       - image: circleci/node:8
 
     steps:
-      - sudo apt install rsync
-
       - checkout
 
       # Download and cache dependencies
@@ -33,6 +31,8 @@ jobs:
           command: ./node_modules/.bin/gatsby build
           environment:
             WORDSBY_PREVIEW: true
+
+      - run: sudo apt install rsync
 
       - add_ssh_keys
 

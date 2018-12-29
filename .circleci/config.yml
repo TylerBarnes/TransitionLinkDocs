@@ -1,14 +1,14 @@
 version: 2
 
 jobs:
-  build:  
+  build:
     branches:
       only:
         - master
     working_directory: ~/tmp
     docker:
       - image: circleci/node:8
-      steps:
+    steps:
       - sudo apt install rsync
       - checkout
 

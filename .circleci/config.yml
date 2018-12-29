@@ -8,6 +8,7 @@ jobs:
     working_directory: ~/tmp
     docker:
       - image: circleci/node:8
+
     steps:
       - sudo apt install rsync
       - checkout

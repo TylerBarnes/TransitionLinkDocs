@@ -5,16 +5,11 @@ jobs:
     branches:
       only:
         - master
-
     working_directory: ~/tmp
-
     docker:
       - image: circleci/node:8
-    
       steps:
-
       - sudo apt install rsync
-
       - checkout
 
       # Download and cache dependencies

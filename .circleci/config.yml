@@ -38,12 +38,8 @@ jobs:
 
       - run:
           name: Add server to known_hosts
-          command: ssh-keyscan -H temperance.online >> ~/.ssh/known_hosts
+          command: $HOST $PUBLIC_KEY >> ~/.ssh/known_hosts
 
       - run:
           name: Send preview build to WordPress
-          environment:
-            USER: temperb6
-            HOST: temperance.online
-            WORDPRESS_ROOT: /home4/temperb6/www/transitionlink
-          command: rsync -va --delete public/ $USER@$HOST:$WORDPRESS_ROOT/preview
+          command: rsync -avce ssh --delete public/ $USER@$HOST:$WORDPRESS_ROOT/preview

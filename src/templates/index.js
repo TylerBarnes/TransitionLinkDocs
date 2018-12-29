@@ -32,20 +32,22 @@ export default function Docs(props) {
       )}
 
       <PaginationLinks>
-        {!!previousPost.pathname &&
+        {!!previousPost &&
+          !!previousPost.pathname &&
           previousPost.post_type === 'page' &&
           previousPost.post_type === post_type && (
             <ArrowLink direction="left" to={previousPost.pathname}>
-              {!!previousPost.post_title
+              {!!previousPost && !!previousPost.post_title
                 ? `back to ${previousPost.post_title}`
                 : 'Previous post'}
             </ArrowLink>
           )}
-        {!!nextPost.pathname &&
+        {!!nextPost &&
+          !!nextPost.pathname &&
           nextPost.post_type === 'page' &&
           nextPost.post_type === post_type && (
             <ArrowLink direction="right" to={nextPost.pathname}>
-              {!!nextPost.post_title
+              {!!nextPost && !!nextPost.post_title
                 ? `up next ${nextPost.post_title}`
                 : 'Next post'}
             </ArrowLink>

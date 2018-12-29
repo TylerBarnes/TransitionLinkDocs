@@ -1,0 +1,45 @@
+version: 2
+
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    working_directory: ~/tmp
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Build preview templates
+          command: ./node_modules/.bin/gatsby build
+          environment:
+            WORDSBY_PREVIEW: true
+
+      - run: sudo apt install rsync
+
+      - add_ssh_keys
+
+      - run:
+          name: Add server to known_hosts
+          command: echo $SSH_KEYSCAN >> ~/.ssh/known_hosts
+
+      - run:
+          name: Send preview build to WordPress
+          command: rsync -avce ssh --delete public/ $USER@$HOST:$WORDPRESS_ROOT/preview

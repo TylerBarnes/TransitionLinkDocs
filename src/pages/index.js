@@ -70,8 +70,10 @@ class home extends Component {
                     >
                       {internal ? (
                         <TransitionLink
-                          to={item.pathname}
+                          to="/"
+                          activeClassName="active"
                           exit={{ length: 1, trigger: this.exitHomeTrans }}
+                          className="test"
                           entry={{
                             delay: 0.5,
                             length: 1,

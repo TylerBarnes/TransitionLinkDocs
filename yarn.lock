@@ -6712,10 +6712,10 @@ gatsby-plugin-styled-components@^3.0.4:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-transition-link@^1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-transition-link/-/gatsby-plugin-transition-link-1.4.4.tgz#779011890b550ae4a5920e056eb94fc0097c3260"
-  integrity sha512-HdGArXflzinQnudVJxkqlCC7nwML/CuXWLxFbCLusYJWYRSyKE5bl14zn1eMRhwbCWEycUzlKsoyio13E87g4A==
+gatsby-plugin-transition-link@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-transition-link/-/gatsby-plugin-transition-link-1.4.7.tgz#c1a030e2ca47e22ff4f351bc2b7272179c9c5cc5"
+  integrity sha512-5dcXFLk09yqWWAetgDQaR5LMYY+7v0IrnpfaFl0/DDZbRrjsqLXSxe2sf3j+KAsbkgKNqpA5e6Fso2vJsiPHsQ==
   dependencies:
     babel-preset-gatsby-package "^0.1.2"
     color-convert "^1.9.3"

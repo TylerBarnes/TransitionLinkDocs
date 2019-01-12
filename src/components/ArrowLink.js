@@ -16,7 +16,9 @@ const ArrowLink = props => {
           cover
           bg="white"
           direction={props.direction || 'right'}
-          to={props.to}
+          to="/docs/"
+          className="testlink"
+          activeClassName="active"
         >
           <LinkArrow reverse={props.direction === 'left'} />
           {props.children}

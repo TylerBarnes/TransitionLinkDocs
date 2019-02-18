@@ -8,6 +8,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import Grid from 'styled-components-grid'
 import { TransitionPortal } from 'gatsby-plugin-transition-link'
+import LogRocket from 'logrocket'
 
 import PrismStyles from '../components/PrismStyles'
 import Link from 'gatsby-plugin-transition-link/AniLink'
@@ -80,6 +81,10 @@ const MainLayout = props => (
 export default MainLayout
 
 class Layout extends React.Component {
+  componentDidMount() {
+    LogRocket.init('lk1vsm/transition-link')
+  }
+
   render() {
     const { children } = this.props
     return (

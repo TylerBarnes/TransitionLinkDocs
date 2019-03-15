@@ -62,7 +62,7 @@ const LinkUnderline = styled.div`
     content: ' ';
     display: block;
     height: 3px;
-    background-color: ${theme.color.lightGreen};
+    background-color: ${theme.color.lightGrey};
     transform: translateX(-102%);
     transition: 1s ease transform, 1s linear background-color;
     transition-delay: 1s, 0.5s;
@@ -78,7 +78,7 @@ const StyledSidebarMenu = styled.ol`
   }
 
   li {
-    color: ${theme.color.lightGreen};
+    color: ${theme.color.lightGrey};
   }
 
   .active {

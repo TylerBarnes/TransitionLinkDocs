@@ -82,7 +82,7 @@ export const Examples = props => {
         <Link
           cover
           to={`/tutorials/cover/${props.b ? 'b' : ''}`}
-          bg={theme.color.lightGreen}
+          bg={theme.color.lightGrey}
           direction="up"
           duration={1}
         >

@@ -30,14 +30,13 @@ const BoxTitle = styled.h4`
   letter-spacing: 2px;
   font-size: 0.8rem;
   padding: 10px;
-  color: ${props =>
-    props.darkTitle ? theme.color.green : theme.color.lightGreen};
+  color: ${props => (props.darkTitle ? theme.color.blue : theme.color.blue)};
 `
 
 const BoxStyles = styled.section`
   position: relative;
   display: inline-block;
-  border: 3px solid ${theme.color.lightGreen};
+  /* border: 3px solid ${theme.color.lightGrey}; */
   padding: 30px 60px 30px 40px;
   margin: 30px 0 80px;
   min-width: 200px;

@@ -43,7 +43,7 @@ const Footer = styled.footer`
 const TyLink = styled.a`
   &,
   span {
-    color: ${theme.color.lightGreen};
+    color: ${theme.color.blue};
   }
   span {
     text-decoration: underline;

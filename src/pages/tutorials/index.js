@@ -27,13 +27,13 @@ const Examples = () => {
             Fade
           </Card>
         </Link>
-        <Link cover bg={theme.color.lightGreen} to="tutorials/cover">
+        <Link cover bg={theme.color.lightGrey} to="tutorials/cover">
           <Card>
             <CardTag>AniLink</CardTag>
             Cover
           </Card>
         </Link>
-        <Link paintDrip hex={theme.color.lightGreen} to="tutorials/paint-drip">
+        <Link paintDrip hex={theme.color.lightGrey} to="tutorials/paint-drip">
           <Card>
             <CardTag>AniLink</CardTag>
             Paint Drip

@@ -82,7 +82,7 @@ const typeConfig = {
     //   height: '5px',
     //   bottom: '-6px',
     //   left: 0,
-    //   background: theme.color.lightGreen,
+    //   background: theme.color.lightGrey,
     //   zIndex: 0,
     // },
   }),

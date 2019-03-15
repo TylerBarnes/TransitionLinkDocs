@@ -5,7 +5,6 @@ import FlexibleContent from '../components/FlexibleContent'
 import ArrowLink from '../components/ArrowLink'
 import PaginationLinks from '../components/PaginationLinks'
 import LetterSlide from '../components/LetterSlide'
-import AnimateContent from '../components/AnimateContent'
 
 export default function Docs(props) {
   const {
@@ -25,11 +24,7 @@ export default function Docs(props) {
       {!!post_content && (
         <div dangerouslySetInnerHTML={{ __html: post_content }} />
       )}
-      {!!acf && (
-        <AnimateContent>
-          <FlexibleContent rows={acf.content_collection} />
-        </AnimateContent>
-      )}
+      {!!acf && <FlexibleContent rows={acf.content_collection} />}
 
       <PaginationLinks>
         {!!previousPost &&

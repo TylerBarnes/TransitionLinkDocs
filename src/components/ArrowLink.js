@@ -42,10 +42,10 @@ const StyledAni = styled.span`
     ${props =>
       props.light
         ? `color: ${
-            theme.color.lightGreen
+            theme.color.lightGrey
           }; letter-spacing: 1.5px; font-size: 0.8rem`
         : `
-      color: ${theme.color.green}; letter-spacing: 2px; font-size: 1rem;
+      color: ${theme.color.blue}; letter-spacing: 2px; font-size: 1rem;
       position: relative;
 
       &:after {
@@ -55,7 +55,7 @@ const StyledAni = styled.span`
         right: 0;
         height: 4px;
         width: calc(100% - 34px);
-        background: ${theme.color.lightGreen}
+        background: ${theme.color.lightGrey}
       }
       `};
 

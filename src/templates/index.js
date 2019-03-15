@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import SidebarLayout from '../layout/SidebarLayout'
 import FlexibleContent from '../components/FlexibleContent'
 import ArrowLink from '../components/ArrowLink'
 import PaginationLinks from '../components/PaginationLinks'
 import LetterSlide from '../components/LetterSlide'
-import AnimateContent from '../components/AnimateContent'
 
 export default function Docs(props) {
   const {
@@ -16,43 +16,44 @@ export default function Docs(props) {
 
   return (
     <SidebarLayout>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
+        <title>Gatsby Plugin Transition Link</title>
+      </Helmet>
       {post_type === 'documentation' && (
         <ArrowLink direction="left" light={1} to="/usage/">
           Table of contents
         </ArrowLink>
       )}
-      <LetterSlide>{!!post_title && <h1>{post_title}</h1>}</LetterSlide>
-      {!!post_content && (
-        <div dangerouslySetInnerHTML={{ __html: post_content }} />
-      )}
-      {!!acf && (
-        <AnimateContent>
-          <FlexibleContent rows={acf.content_collection} />
-        </AnimateContent>
-      )}
+      <main role="main">
+        <LetterSlide>{!!post_title && <h1>{post_title}</h1>}</LetterSlide>
+        {!!post_content && (
+          <div dangerouslySetInnerHTML={{ __html: post_content }} />
+        )}
+        {!!acf && <FlexibleContent rows={acf.content_collection} />}
 
-      <PaginationLinks>
-        {!!previousPost &&
-          !!previousPost.pathname &&
-          previousPost.post_type === 'page' &&
-          previousPost.post_type === post_type && (
-            <ArrowLink direction="left" to={previousPost.pathname}>
-              {!!previousPost && !!previousPost.post_title
-                ? `back to ${previousPost.post_title}`
-                : 'Previous post'}
-            </ArrowLink>
-          )}
-        {!!nextPost &&
-          !!nextPost.pathname &&
-          nextPost.post_type === 'page' &&
-          nextPost.post_type === post_type && (
-            <ArrowLink direction="right" to={nextPost.pathname}>
-              {!!nextPost && !!nextPost.post_title
-                ? `up next ${nextPost.post_title}`
-                : 'Next post'}
-            </ArrowLink>
-          )}
-      </PaginationLinks>
+        <PaginationLinks>
+          {!!previousPost &&
+            !!previousPost.pathname &&
+            previousPost.post_type === 'page' &&
+            previousPost.post_type === post_type && (
+              <ArrowLink direction="left" to={previousPost.pathname}>
+                {!!previousPost && !!previousPost.post_title
+                  ? `back to ${previousPost.post_title}`
+                  : 'Previous post'}
+              </ArrowLink>
+            )}
+          {!!nextPost &&
+            !!nextPost.pathname &&
+            nextPost.post_type === 'page' &&
+            nextPost.post_type === post_type && (
+              <ArrowLink direction="right" to={nextPost.pathname}>
+                {!!nextPost && !!nextPost.post_title
+                  ? `up next ${nextPost.post_title}`
+                  : 'Next post'}
+              </ArrowLink>
+            )}
+        </PaginationLinks>
+      </main>
     </SidebarLayout>
   )
 }

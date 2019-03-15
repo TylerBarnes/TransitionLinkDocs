@@ -96,7 +96,7 @@ const CopyMessage = styled.h4`
   text-transform: uppercase !important;
   pointer-events: none;
   padding: 20px;
-  background: ${theme.color.green};
+  background: ${theme.color.blue};
   color: white;
   transform: translateY(0);
 
@@ -136,7 +136,8 @@ const PMSelector = styled.div`
   span {
     display: block;
     text-align: right;
-    color: ${theme.color.lightGreen};
+    color: ${theme.color.blue};
+    transform: translateY(2px);
   }
 `
 

@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   ${theme.typographyString}
 
   * {
-    color: ${theme.color.green};
+    color: ${theme.color.blue};
   }
 
   a, a:visited {
@@ -119,17 +119,19 @@ class Layout extends React.Component {
                 <TransitionPortal level="top">
                   <TransitionPortalInner>
                     <StyledEdges>
-                      <Link fade to="/">
-                        <StyledLogo
-                          position={
-                            this.props.currentLocation === '/'
-                              ? 'center'
-                              : 'top left'
-                          }
-                        >
-                          <Img className="logo" fluid={logo} />
-                        </StyledLogo>
-                      </Link>
+                      <header role="banner">
+                        <Link fade to="/">
+                          <StyledLogo
+                            position={
+                              this.props.currentLocation === '/'
+                                ? 'center'
+                                : 'top left'
+                            }
+                          >
+                            <Img className="logo" fluid={logo} />
+                          </StyledLogo>
+                        </Link>
+                      </header>
 
                       <Grid.Unit visible={{ xs: false, lg: true }}>
                         <DefaultSidebar

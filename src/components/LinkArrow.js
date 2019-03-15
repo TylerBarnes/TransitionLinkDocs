@@ -21,7 +21,7 @@ const LinkArrowStyles = styled.span`
       : 'padding-right: 10px;'};
 
   path {
-    fill: ${theme.color.lightGreen};
+    fill: ${theme.color.lightGrey};
   }
 `
 

@@ -182,6 +182,12 @@ const StyledLogo = styled.article`
     transition: 1s all ease-in-out;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    &, .logo {
+      transition: none !important;
+    }
+  }
+
   ${props =>
     props.position === 'top left'
       ? `

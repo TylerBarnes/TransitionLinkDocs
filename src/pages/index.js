@@ -5,6 +5,7 @@ import Edges from '../components/Edges'
 import MenuItems from '../components/MenuItems'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import TimelineMax from 'gsap'
+import userPrefersReducedMotion from '../utils/userPrefersReducedMotion'
 
 import PackageInstallText from '../components/PackageInstallText'
 import Card from '../components/Card'
@@ -17,6 +18,10 @@ class home extends Component {
   }
 
   componentDidMount() {
+    if (userPrefersReducedMotion()) {
+      return;
+    }
+
     new TimelineMax.staggerFromTo(
       this.page.querySelectorAll('.card'),
       1,

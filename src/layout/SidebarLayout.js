@@ -4,6 +4,7 @@ import Grid from 'styled-components-grid'
 import Edges from '../components/Edges'
 import * as theme from '../theme'
 import SidebarMenu from '../components/Menus/SidebarMenu'
+import userPrefersReducedMotion from '../utils/userPrefersReducedMotion'
 
 export default function SidebarLayout(props) {
   return (
@@ -26,12 +27,10 @@ export default function SidebarLayout(props) {
 }
 
 export const DefaultSidebar = ({ show, fixed }) => {
-  return (
-    <SidebarStyles show={show} fixed={fixed}>
-      <SidebarCover show={show} />
+  return <SidebarStyles show={show} fixed={fixed}>
+      {!userPrefersReducedMotion() && <SidebarCover show={show} />}
       <SidebarMenu />
     </SidebarStyles>
-  )
 }
 
 const Footer = styled.footer`
@@ -83,6 +82,9 @@ const SidebarStyles = styled.nav`
       : null};
 
   transition: 0.5s ease opacity 0.5s;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none !important;
+  }
   transition-delay: 0s;
   transform: translateX(-10px);
   ${props =>

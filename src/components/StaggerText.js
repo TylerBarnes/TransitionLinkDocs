@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { SplitText } from '../utils/SplitText'
 import TimelineMax from 'gsap'
 import styled from 'styled-components'
+import userPrefersReducedMotion from '../utils/userPrefersReducedMotion'
 
 class StaggerText extends Component {
   constructor(props) {
@@ -21,6 +22,10 @@ class StaggerText extends Component {
   }
 
   componentDidMount() {
+    if (userPrefersReducedMotion()) {
+      return;
+    }
+    
     if (typeof document === 'undefined') return
 
     this.textSplit = new SplitText(this.text, {

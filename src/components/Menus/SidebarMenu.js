@@ -66,6 +66,10 @@ const LinkUnderline = styled.div`
     transform: translateX(-102%);
     transition: 1s ease transform, 1s linear background-color;
     transition-delay: 1s, 0.5s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none !important;
+    }
   }
 `
 

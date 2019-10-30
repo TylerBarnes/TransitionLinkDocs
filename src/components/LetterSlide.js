@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { SplitText } from '../utils/SplitText'
 import { TimelineMax } from 'gsap'
 import styled from 'styled-components'
+import userPrefersReducedMotion from '../utils/userPrefersReducedMotion'
 
 class LetterSlide extends Component {
   constructor(props) {
@@ -27,6 +28,9 @@ class LetterSlide extends Component {
   }
 
   componentDidMount() {
+    if (userPrefersReducedMotion()) {
+      return
+    }
     if (typeof document === 'undefined') return
 
     this.textSplit = new SplitText(this.text, {

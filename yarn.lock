@@ -5854,9 +5854,9 @@ fault@^1.0.0, fault@^1.0.2:
   dependencies:
     format "^0.2.2"
 
-"favicons-webpack-plugin@git+https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf":
+"favicons-webpack-plugin@https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf":
   version "0.0.9"
-  resolved "git+https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
+  resolved "https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
   dependencies:
     core-js "^2.5.7"
     favicons "^5.1.1"
@@ -9274,6 +9274,11 @@ lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+
+lodash.camelcase@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
+  integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
 
 lodash.defaults@^4.2.0:
   version "4.2.0"

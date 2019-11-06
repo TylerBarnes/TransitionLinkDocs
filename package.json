@@ -29,6 +29,7 @@
     "gatsby-transformer-sharp": "^2.3.2",
     "gsap": "^2.1.3",
     "html-react-parser": "^0.4.7",
+    "lodash.camelcase": "^4.3.0",
     "logrocket": "^0.6.19",
     "minireset.css": "^0.0.3",
     "prismjs": "^1.15.0",
